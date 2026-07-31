@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="nl" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="MacroVisie v8.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
+  <meta name="color-scheme" content="dark light">
+  <title>MacroVisie v8.0</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Naar inhoud</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Hoofdnavigatie">
+      <div class="sidebar-head">
+        <a class="brand" href="#dashboard" aria-label="MacroVisie dashboard">
+          <span class="brand-mark"><img src="assets/logo.svg" alt="" width="30" height="30"></span>
+          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v8.0</small></span>
+        </a>
+        <button class="icon-button mobile-only" id="sidebarClose" aria-label="Menu sluiten">×</button>
+      </div>
+
+      <button class="search-launch" id="searchLaunch" type="button" aria-label="Zoeken in MacroVisie">
+        <span>Zoeken</span><kbd>/</kbd>
+      </button>
+
+      <nav id="nav">
+        <span class="nav-heading">Overzicht</span>
+        <a href="#dashboard" data-page="dashboard" class="active"><span class="nav-symbol">⌂</span><span>Dashboard</span></a>
+        <span class="nav-heading">Macro</span>
+        <a href="#groei" data-page="groei"><span class="nav-symbol">↗</span><span>Groei</span></a>
+        <a href="#arbeidsmarkt" data-page="arbeidsmarkt"><span class="nav-symbol">◎</span><span>Arbeidsmarkt</span></a>
+        <a href="#inflatie" data-page="inflatie"><span class="nav-symbol">≈</span><span>Inflatie</span></a>
+        <a href="#ecb" data-page="ecb"><span class="nav-symbol">◫</span><span>ECB & verwachtingen</span></a>
+        <a href="#obligaties" data-page="obligaties"><span class="nav-symbol">⌁</span><span>Obligaties</span></a>
+        <a href="#liquiditeit" data-page="liquiditeit"><span class="nav-symbol">◌</span><span>Liquiditeit</span></a>
+        <a href="#stress" data-page="stress"><span class="nav-symbol">△</span><span>Stress</span></a>
+        <span class="nav-heading simulation-heading">Experiment</span>
+        <a href="#simulatie" data-page="simulatie" class="simulation-nav"><span class="nav-symbol">◇</span><span>Scenario-simulatie</span><span class="nav-beta">LAB</span></a>
+        <span class="nav-heading">Naslag</span>
+        <a href="#cheatsheet" data-page="cheatsheet"><span class="nav-symbol">▦</span><span>Cheat sheet</span></a>
+        <a href="#begrippen" data-page="begrippen"><span class="nav-symbol">i</span><span>Begrippen</span></a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="data-health">
+          <span class="health-dot" id="stateDot"></span>
+          <span><strong id="globalSource">Data laden</strong><small id="sourceNote">Officiële data waar mogelijk</small></span>
+        </div>
+        <button class="text-button" id="installBtn" hidden>Installeer als app</button>
+      </div>
+    </aside>
+
+    <div class="scrim" id="scrim" hidden></div>
+
+    <main class="main" id="mainContent">
+      <header class="topbar">
+        <div class="topbar-title">
+          <button class="icon-button mobile-only" id="menuBtn" aria-label="Menu openen">☰</button>
+          <div><span class="eyebrow" id="eyebrow">MACRO-OVERZICHT</span><h1 id="pageTitle">Dashboard</h1></div>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-button" id="themeBtn" aria-label="Wissel kleurthema" title="Wissel kleurthema">◐</button>
+          <button class="secondary-button" id="downloadBtn">Exporteer CSV</button>
+          <div class="updated-badge"><span>Bijgewerkt</span><strong id="lastUpdated">—</strong></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="page active" data-page-panel="dashboard">
+          <div class="intro-row">
+            <div><span class="eyebrow">MACROREGIME</span><h2>Eurozone in één oogopslag</h2><p>De indicatoren die we hebben behandeld, zonder automatische beleggingsconclusie.</p></div>
+            <div class="range-picker" data-range-picker aria-label="Kies periode"></div>
+          </div>
+
+          <section class="pulse-panel card" aria-labelledby="pulseTitle">
+            <div class="pulse-copy"><span class="eyebrow">MACRO PULSE</span><h3 id="pulseTitle">Vier krachten die het regime bepalen</h3><p>Een beschrijvende samenvatting van de huidige data. Dit is geen koop- of verkoopadvies.</p></div>
+            <div class="pulse-grid" id="pulseGrid"></div>
+          </section>
+
+          <div class="status-grid" id="statusGrid"></div>
+
+          <div class="section-heading"><div><span class="eyebrow">KERNCIJFERS</span><h2>Laatste waarden</h2></div><span class="section-hint">Klik op een kaart voor de bijbehorende pagina</span></div>
+          <div class="metric-grid" id="dashboardMetrics"></div>
+
+          <div class="dashboard-grid spaced">
+            <article class="card chart-card feature-card"><div class="card-header"><div><span class="eyebrow">GROEI</span><h3>PMI Composite</h3></div><button class="info-button" data-info="pmiComposite" aria-label="Uitleg PMI Composite">i</button></div><div class="chart" data-chart="pmiComposite"></div></article>
+            <article class="card chart-card"><div class="card-header"><div><span class="eyebrow">INFLATIE</span><h3>Kerninflatie</h3></div><button class="info-button" data-info="coreCpi" aria-label="Uitleg kerninflatie">i</button></div><div class="chart" data-chart="coreCpi"></div></article>
+            <article class="card chart-card"><div class="card-header"><div><span class="eyebrow">OBLIGATIES</span><h3>10Y–2Y rentecurve</h3></div><button class="info-button" data-info="yieldCurve" aria-label="Uitleg rentecurve">i</button></div><div class="chart" data-chart="yieldCurve"></div></article>
+            <article class="card chart-card"><div class="card-header"><div><span class="eyebrow">LIQUIDITEIT</span><h3>M3-groei</h3></div><button class="info-button" data-info="m3" aria-label="Uitleg M3">i</button></div><div class="chart" data-chart="m3"></div></article>
+          </div>
+
+          <article class="card spaced monitor-card">
+            <div class="card-header"><div><span class="eyebrow">MAANDMONITOR</span><h3>Wat veranderde er?</h3></div><span class="source-tag calculated">afgeleid</span></div>
+            <div class="table-wrap"><table><thead><tr><th>Indicator</th><th>Laatste</th><th>1 maand</th><th>3 maanden</th><th>12 maanden</th><th>Bron</th></tr></thead><tbody id="monitorTable"></tbody></table></div>
+          </article>
+        </section>
+
+        <section class="page" data-page-panel="groei">
+          <div class="page-intro"><div><p class="page-question">Wordt de economie sterker of zwakker?</p><p>PMI loopt meestal voor op BBP. Kijk naar zowel het niveau als de richting.</p></div><div class="range-picker" data-range-picker></div></div>
+          <div class="metric-grid" data-page-metrics="groei"></div>
+          <div class="chart-grid two spaced">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">INDUSTRIE</span><h3>PMI Manufacturing</h3></div><button class="info-button" data-info="pmiManufacturing">i</button></div><div class="chart" data-chart="pmiManufacturing"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">DIENSTEN</span><h3>PMI Services</h3></div><button class="info-button" data-info="pmiServices">i</button></div><div class="chart" data-chart="pmiServices"></div></article>
+            <article class="card full"><div class="card-header"><div><span class="eyebrow">ECONOMIE</span><h3>BBP-groei kwartaal-op-kwartaal</h3></div><button class="info-button" data-info="gdp">i</button></div><div class="chart" data-chart="gdp"></div></article>
+          </div>
+          <article class="card spaced"><div class="card-header"><div><span class="eyebrow">HISTORIE</span><h3>Recente ontwikkeling</h3></div></div><div class="table-wrap"><table><thead><tr><th>Periode</th><th>PMI industrie</th><th>PMI diensten</th><th>PMI composite</th><th>BBP</th></tr></thead><tbody id="growthTable"></tbody></table></div></article>
+        </section>
+
+        <section class="page" data-page-panel="arbeidsmarkt">
+          <div class="page-intro"><div><p class="page-question">Blijft de arbeidsmarkt krap?</p><p>Lage werkloosheid en hoge loongroei kunnen diensteninflatie hardnekkig houden.</p></div><div class="range-picker" data-range-picker></div></div>
+          <div class="metric-grid" data-page-metrics="arbeidsmarkt"></div>
+          <div class="chart-grid two spaced">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">WERK</span><h3>Werkloosheid</h3></div><button class="info-button" data-info="unemployment">i</button></div><div class="chart" data-chart="unemployment"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">LOONDRUK</span><h3>Loonontwikkeling</h3></div><button class="info-button" data-info="wages">i</button></div><div class="chart" data-chart="wages"></div></article>
+          </div>
+        </section>
+
+        <section class="page" data-page-panel="inflatie">
+          <div class="page-intro"><div><p class="page-question">Neemt de inflatiedruk toe of af?</p><p>Headline inflatie beweegt sneller; kerninflatie zegt meer over de onderliggende druk.</p></div><div class="range-picker" data-range-picker></div></div>
+          <div class="metric-grid" data-page-metrics="inflatie"></div>
+          <div class="chart-grid two spaced">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">HEADLINE</span><h3>CPI</h3></div><button class="info-button" data-info="cpi">i</button></div><div class="chart" data-chart="cpi"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">ONDERLIGGEND</span><h3>Kerninflatie</h3></div><button class="info-button" data-info="coreCpi">i</button></div><div class="chart" data-chart="coreCpi"></div></article>
+            <article class="card full"><div class="card-header"><div><span class="eyebrow">VERGELIJKING</span><h3>CPI versus kerninflatie</h3></div></div><div class="chart" data-multi-chart="cpi,coreCpi"></div></article>
+          </div>
+        </section>
+
+        <section class="page" data-page-panel="ecb">
+          <div class="page-intro"><div><p class="page-question">Wat doet de ECB en wat verwacht de markt?</p><p>Het verschil tussen beleid en ingeprijsde verwachtingen bepaalt vaak de marktreactie.</p></div><div class="range-picker" data-range-picker></div></div>
+          <div class="metric-grid" data-page-metrics="ecb"></div>
+          <div class="chart-grid two spaced">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">BELEID</span><h3>ECB-depositorente</h3></div><button class="info-button" data-info="depositRate">i</button></div><div class="chart" data-chart="depositRate"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">MARKT</span><h3>OIS: verwachte stappen</h3></div><button class="info-button" data-info="oisCuts">i</button></div><div class="chart" data-chart="oisCuts"></div></article>
+          </div>
+          <article class="card insight-card spaced"><span class="eyebrow">LEESREGEL</span><h3>Werk altijd van verwachting naar verrassing</h3><p>Een rentebesluit is pas marktbewegend wanneer het afwijkt van wat via OIS al was ingeprijsd.</p></article>
+        </section>
+
+        <section class="page" data-page-panel="obligaties">
+          <div class="page-intro"><div><p class="page-question">Wat prijst de obligatiemarkt momenteel in?</p><p>Nominale rente = reële rente + verwachte inflatie. De curve vertelt hoe de markt naar de toekomstige rente kijkt.</p></div><div class="range-picker" data-range-picker></div></div>
+          <div class="metric-grid" data-page-metrics="obligaties"></div>
+          <div class="chart-grid two spaced">
+            <article class="card full yield-card"><div class="card-header"><div><span class="eyebrow">SPOTCURVE</span><h3>Actuele yieldcurve</h3></div><span class="source-tag live">ECB</span></div><div class="chart yield-chart" id="yieldCurveChart"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">RENTEPAD</span><h3>10Y–2Y rentecurve</h3></div><button class="info-button" data-info="yieldCurve">i</button></div><div class="chart" data-chart="yieldCurve"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">KOOPKRACHT</span><h3>10Y reële yield</h3></div><button class="info-button" data-info="realYield">i</button></div><div class="chart" data-chart="realYield"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">INFLATIEVERWACHTING</span><h3>Break-eveninflatie</h3></div><button class="info-button" data-info="breakeven">i</button></div><div class="chart" data-chart="breakeven"></div></article>
+            <article class="card formula-card"><span class="eyebrow">FORMULE</span><h3>Nominale yield − reële yield</h3><strong id="breakevenFormula">—</strong><p>De break-even is een richtinggevende proxy en geen exacte verhandelbare quote.</p></article>
+          </div>
+        </section>
+
+        <section class="page" data-page-panel="liquiditeit">
+          <div class="page-intro"><div><p class="page-question">Komt er geld bij of verdwijnt er geld uit het systeem?</p><p>M3 en de ECB-balans geven verschillende maar aanvullende signalen over liquiditeit.</p></div><div class="range-picker" data-range-picker></div></div>
+          <div class="metric-grid" data-page-metrics="liquiditeit"></div>
+          <div class="chart-grid two spaced">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">GELDHOEVEELHEID</span><h3>M3-groei</h3></div><button class="info-button" data-info="m3">i</button></div><div class="chart" data-chart="m3"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">CENTRALE BANK</span><h3>ECB-balans</h3></div><button class="info-button" data-info="ecbBalance">i</button></div><div class="chart" data-chart="ecbBalance"></div></article>
+          </div>
+          <article class="card policy-card spaced"><span class="eyebrow">AFGELEIDE RICHTING</span><h3 id="policyLabel">—</h3><p id="policyText">—</p></article>
+        </section>
+
+        <section class="page" data-page-panel="stress">
+          <div class="page-intro"><div><p class="page-question">Neemt de spanning in het financiële systeem toe?</p><p>Credit spreads laten zien hoeveel extra vergoeding beleggers eisen boven staatsobligaties.</p></div><div class="range-picker" data-range-picker></div></div>
+          <div class="metric-grid" data-page-metrics="stress"></div>
+          <article class="card spaced"><div class="card-header"><div><span class="eyebrow">RISICOPREMIE</span><h3>Credit spread</h3></div><button class="info-button" data-info="creditSpread">i</button></div><div class="chart tall" data-chart="creditSpread"></div></article>
+        </section>
+
+        <section class="page simulation-page" data-page-panel="simulatie">
+          <div class="simulation-hero">
+            <div>
+              <span class="simulation-kicker">AFZONDERLIJKE OEFENOMGEVING</span>
+              <h2>Scenario-simulatie</h2>
+              <p>Verander een paar macrovariabelen en bekijk de waarschijnlijke richting van activaklassen. Deze omgeving staat volledig los van het actuele dashboard en wijzigt geen data.</p>
+            </div>
+            <div class="simulation-seal"><span>LAB</span><strong>Educatief model</strong><small>Geen voorspelling of advies</small></div>
+          </div>
+
+          <div class="simulation-boundary">
+            <span>◇</span>
+            <p><strong>Je bent nu buiten het actuele dashboard.</strong> Alle uitkomsten hieronder zijn mechanische denkrichtingen op basis van de verbanden die we hebben behandeld.</p>
+          </div>
+
+          <div class="preset-row" aria-label="Voorbeeldscenario's">
+            <span>Voorbeelden</span>
+            <button class="preset-button" data-preset="soft">Zachte landing</button>
+            <button class="preset-button" data-preset="inflation">Inflatieschok</button>
+            <button class="preset-button" data-preset="recession">Recessie + verruiming</button>
+            <button class="preset-button" data-preset="stress">Financiële stress</button>
+            <button class="preset-button reset" id="simulationReset">Herstel neutraal</button>
+          </div>
+
+          <div class="simulation-layout spaced">
+            <section class="card simulation-controls" aria-labelledby="controlsTitle">
+              <div class="card-header simulation-card-header"><div><span class="eyebrow">INVOER</span><h3 id="controlsTitle">Wat verandert er?</h3></div><span class="source-tag simulation-source">jouw scenario</span></div>
+              <div class="control-stack">
+                <label class="scenario-control">
+                  <span class="control-copy"><strong>Groei / PMI-verrassing</strong><small>Negatief = zwakker dan verwacht</small></span>
+                  <output id="simGrowthOutput">0,0 punt</output>
+                  <input id="simGrowth" type="range" min="-6" max="6" step="0.5" value="0">
+                  <span class="range-labels"><span>zwakker</span><span>sterker</span></span>
+                </label>
+                <label class="scenario-control">
+                  <span class="control-copy"><strong>Kerninflatie-verrassing</strong><small>Afwijking ten opzichte van verwachting</small></span>
+                  <output id="simInflationOutput">0,0 pp</output>
+                  <input id="simInflation" type="range" min="-1.5" max="1.5" step="0.1" value="0">
+                  <span class="range-labels"><span>lager</span><span>hoger</span></span>
+                </label>
+                <label class="scenario-control">
+                  <span class="control-copy"><strong>ECB-verrassing</strong><small>Positief = hawkisher dan ingeprijsd</small></span>
+                  <output id="simEcbOutput">0 bp</output>
+                  <input id="simEcb" type="range" min="-50" max="50" step="5" value="0">
+                  <span class="range-labels"><span>dovisher</span><span>hawkisher</span></span>
+                </label>
+                <label class="scenario-control">
+                  <span class="control-copy"><strong>Liquiditeitsimpuls</strong><small>QE/M3/centrale-bankliquiditeit</small></span>
+                  <output id="simLiquidityOutput">neutraal</output>
+                  <input id="simLiquidity" type="range" min="-2" max="2" step="0.25" value="0">
+                  <span class="range-labels"><span>krappere liquiditeit</span><span>ruimere liquiditeit</span></span>
+                </label>
+                <label class="scenario-control">
+                  <span class="control-copy"><strong>Credit-spreadschok</strong><small>Positief = spreads lopen uit</small></span>
+                  <output id="simSpreadOutput">0 bp</output>
+                  <input id="simSpread" type="range" min="-75" max="200" step="5" value="0">
+                  <span class="range-labels"><span>minder stress</span><span>meer stress</span></span>
+                </label>
+              </div>
+            </section>
+
+            <section class="simulation-results">
+              <article class="card scenario-summary">
+                <div><span class="eyebrow">SCENARIO</span><h3 id="scenarioTitle">Neutraal scenario</h3><p id="scenarioSummary">Er is nog geen betekenisvolle macroverrassing ingesteld.</p></div>
+                <div class="scenario-intensity"><span>Intensiteit</span><strong id="scenarioIntensity">0%</strong><div class="intensity-track"><i id="scenarioIntensityBar"></i></div></div>
+              </article>
+              <div class="asset-impact-grid" id="assetImpactGrid"></div>
+            </section>
+          </div>
+
+          <div class="simulation-explain-grid spaced">
+            <article class="card chain-card">
+              <div class="card-header"><div><span class="eyebrow">REDENEERKETEN</span><h3>Waarom geeft het model deze richting?</h3></div></div>
+              <div class="scenario-chain" id="scenarioChain"></div>
+            </article>
+            <article class="card limitations-card">
+              <span class="eyebrow">BELANGRIJKE BEPERKING</span>
+              <h3>De markt reageert op verwachtingen</h3>
+              <p>Deze simulatie veronderstelt dat jouw verandering een verrassing is. In werkelijkheid kan dezelfde economische uitkomst een andere marktreactie geven wanneer zij al volledig is ingeprijsd.</p>
+              <ul><li>De pijlen zijn richtingen, geen rendementsvoorspellingen.</li><li>Effecten kunnen elkaar tegenwerken.</li><li>De euro is altijd relatief aan andere valuta.</li><li>Goud reageert vooral op reële rente, liquiditeit en stress.</li></ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="page" data-page-panel="cheatsheet">
+          <div class="page-intro"><div><p class="page-question">Wanneer doen verschillende activaklassen het meestal goed?</p><p>Een vaste, eenvoudige vertaaltabel. Werkelijke marktbewegingen hangen ook af van wat al is ingeprijsd.</p></div></div>
+          <article class="card"><div class="table-wrap"><table class="cheat-table"><thead><tr><th>Activaklasse</th><th>Groei</th><th>Inflatie</th><th>Reële rente</th><th>Liquiditeit</th><th>Stress</th></tr></thead><tbody><tr><td>Aandelen</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓</td></tr><tr><td>Langlopende staatsobligaties</td><td>↓</td><td>↓</td><td>↓</td><td>↑</td><td>↑</td></tr><tr><td>Kortlopende staatsobligaties</td><td>↓</td><td>↓</td><td>↓</td><td>→</td><td>↑</td></tr><tr><td>Investment Grade</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓</td></tr><tr><td>High Yield</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓↓</td></tr><tr><td>Goud</td><td>↓</td><td>↑</td><td>↓</td><td>↑</td><td>↑</td></tr><tr><td>Euro*</td><td>↑</td><td>↑</td><td>↑</td><td>↓</td><td>→</td></tr></tbody></table></div></article>
+          <article class="card reasoning-card spaced"><span class="eyebrow">REDENEERSCHEMA</span><ol><li>Groei: versnelt of vertraagt?</li><li>Arbeidsmarkt: krapper of ruimer?</li><li>Inflatie: stijgt of daalt de onderliggende druk?</li><li>ECB: hawkish of dovish?</li><li>Marktverwachting: wat is al ingeprijsd?</li><li>Verrassing: wijkt de realiteit daarvan af?</li><li>Vertaling: wat betekent dit voor de activaklassen?</li></ol></article>
+        </section>
+
+        <section class="page" data-page-panel="begrippen">
+          <div class="page-intro"><div><p class="page-question">De begrippen achter het dashboard</p><p>Alleen de onderwerpen die we samen hebben behandeld.</p></div></div>
+          <div class="definition-grid" id="definitions"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="info-dialog" id="infoDialog"><div class="dialog-head"><div><span class="eyebrow">UITLEG</span><h2 id="dialogTitle">Begrip</h2></div><button class="icon-button" id="dialogClose" aria-label="Sluiten">×</button></div><div id="dialogBody"></div></dialog>
+
+  <dialog class="command-dialog" id="commandDialog">
+    <div class="command-search"><span>⌕</span><input id="commandInput" type="search" placeholder="Zoek pagina of indicator…" autocomplete="off"><kbd>Esc</kbd></div>
+    <div class="command-results" id="commandResults"></div>
+  </dialog>
+
+  <div class="tooltip" id="tooltip" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
