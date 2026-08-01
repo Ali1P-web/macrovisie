@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""MacroVisie v9.1 updater.
+"""MacroVisie v9.2 updater.
 
 Bronnen:
 - ECB Data Portal: beleidsrente, eurozone-curves, M3, Eurosysteembalans.
@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "dashboard.json"
 SAMPLE = ROOT / "data" / "sample.json"
 MANUAL = ROOT / "data" / "manual.csv"
-USER_AGENT = "MacroVisie/9.1 (educational dashboard; GitHub Pages)"
+USER_AGENT = "MacroVisie/9.2 (educational dashboard; GitHub Pages)"
 
 ECB = {
     "depositRate": ("FM", "D.U2.EUR.4F.KR.DFR.LEV"),
@@ -63,26 +63,16 @@ EUROSTAT = {
         ("namq_10_gdp", {"freq":"Q","unit":"CLV_PCH_PRE","s_adj":"SCA","na_item":"B1GQ","geo":"EA20"}),
         ("namq_10_gdp", {"freq":"Q","unit":"CLV_PCH_PRE","s_adj":"SCA","na_item":"B1GQ","geo":"EA19"}),
     ],
-    # HICP ECOICOP v2. Vanaf januari 2026 is de eurozone EA21.
-    # Eurostat heeft tijdens de classificatie-overgang zowel `coicop` als
-    # `ecoicop` als dimensienaam gebruikt. We proberen beide, maar accepteren
-    # een antwoord alleen wanneer alle filters aantoonbaar zijn toegepast.
+    # HICP volgens ECOICOP versie 2. De dimensie heet `coicop18`.
+    # `TOTAL` is de totale HICP; `TOT_X_NRG_FOOD` is de gebruikelijke
+    # kernmaat exclusief energie, voeding, alcohol en tabak.
     "cpi": [
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"CP00","geo":"EA21"}),
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"CP00","geo":"EA21"}),
-        # Historische fallback; nieuwe waarnemingen worden over de cache gelegd.
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"CP00","geo":"EA20"}),
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"CP00","geo":"EA20"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop18":"TOTAL","geo":"EA21"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop18":"TOTAL","geo":"EA20"}),
     ],
     "coreCpi": [
-        # Kern-HICP: alle items exclusief energie, voeding, alcohol en tabak.
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"TOT_X_NRG_FOOD","geo":"EA21"}),
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"TOT_X_NRG_FOOD","geo":"EA21"}),
-        # Fallbackcode die in sommige ECOICOP-v2 extracties wordt gebruikt.
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"CP00_X_01_045","geo":"EA21"}),
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"CP00_X_01_045","geo":"EA21"}),
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"TOT_X_NRG_FOOD","geo":"EA20"}),
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"TOT_X_NRG_FOOD","geo":"EA20"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop18":"TOT_X_NRG_FOOD","geo":"EA21"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop18":"TOT_X_NRG_FOOD","geo":"EA20"}),
     ],
     "wages": [
         ("lc_lci_r2_q", {"freq":"Q","unit":"PCH_SM","s_adj":"CA","nace_r2":"B-S","lcstruct":"WAG","geo":"EA20"}),
@@ -269,6 +259,16 @@ def set_values(data: dict, key: str, values: list[dict], source: str, source_nam
         series["source_name"] = source_name
 
 
+def mark_unavailable(data: dict, key: str, reason: str) -> None:
+    """Verwijder onbetrouwbare waarden zodat de site geen oud cijfer als LIVE toont."""
+    series = ensure_meta(data, key)
+    series["values"] = []
+    series["source"] = "niet beschikbaar"
+    series["source_name"] = reason
+    series["freshness"] = "fout"
+    series["data_quality"] = False
+
+
 def merge_manual(data: dict) -> list[str]:
     if not MANUAL.exists():
         return []
@@ -370,30 +370,34 @@ def main() -> int:
                 # EA21-reeksen kunnen pas in 2026 beginnen. Bewaar daarom de
                 # oudere, reeds gevalideerde historie en vervang alleen overlap.
                 if key in {"cpi", "coreCpi"}:
-                    existing = data.get("series", {}).get(key, {}).get("values", [])
-                    values = merge_values(existing, values)
                     latest_value = values[-1]["value"]
-                    if not (-5.0 <= latest_value <= 25.0):
+                    latest_year = int(values[-1]["date"][:4])
+                    if not (-5.0 <= latest_value <= 15.0):
                         raise RuntimeError(f"onplausibele laatste inflatiewaarde: {latest_value}")
-                set_values(data, key, values, "live", f"Eurostat · {dataset}")
+                    if latest_year < 2026:
+                        raise RuntimeError("HICP-reeks bevat geen observatie vanaf 2026")
+                set_values(data, key, values, "live", f"Eurostat · {dataset} · {filters.get('geo')} · {filters.get('coicop18','')}")
+                ensure_meta(data, key)["data_quality"] = True
                 success.append(key)
                 break
             except Exception as exc:
                 last_error = exc
         else:
             errors.append(f"Eurostat {key}: {last_error}")
+            if key in {"cpi", "coreCpi"}:
+                mark_unavailable(data, key, f"Eurostat-update mislukt: {last_error}")
 
     success.extend(merge_manual(data))
     calculate(data)
     errors.extend(validate(data))
     data.setdefault("meta", {}).update({
         "name": "MacroVisie",
-        "version": "9.1.0",
+        "version": "9.2.0",
         "updated_at": date.today().isoformat(),
         "mode": "web",
         "successful_updates": sorted(set(success)),
         "warnings": errors,
-        "methodology": "v9.1: EA21 HICP, filtervalidatie, transparante scores en Nederlandse notatie",
+        "methodology": "v9.2: geverifieerde ECOICOP2-HICP via coicop18, fail-closed datakwaliteit en Nederlandse notatie",
     })
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"MacroVisie v9: {len(set(success))} reeksen bijgewerkt; {len(errors)} waarschuwingen")
