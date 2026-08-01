@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "0.3.0",
-    "updated_at": "2026-07-31",
+    "updated_at": "2026-08-01",
     "mode": "web",
     "successful_updates": [
       "depositRate",
@@ -5674,6 +5674,10 @@
         },
         {
           "date": "2026-07-01",
+          "value": 2.25
+        },
+        {
+          "date": "2026-08-01",
           "value": 2.25
         }
       ]
