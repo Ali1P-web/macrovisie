@@ -1,4 +1,4 @@
-# MacroVisie v9.0
+# MacroVisie v9.1.1
 
 Nederlandstalig macro-dashboard voor de eurozone, gebouwd als statische GitHub Pages-app.
 

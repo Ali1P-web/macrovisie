@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""MacroVisie v9 updater.
+"""MacroVisie v9.1 updater.
 
 Bronnen:
 - ECB Data Portal: beleidsrente, eurozone-curves, M3, Eurosysteembalans.
@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "dashboard.json"
 SAMPLE = ROOT / "data" / "sample.json"
 MANUAL = ROOT / "data" / "manual.csv"
-USER_AGENT = "MacroVisie/9.0 (educational dashboard; GitHub Pages)"
+USER_AGENT = "MacroVisie/9.1 (educational dashboard; GitHub Pages)"
 
 ECB = {
     "depositRate": ("FM", "D.U2.EUR.4F.KR.DFR.LEV"),
@@ -63,16 +63,26 @@ EUROSTAT = {
         ("namq_10_gdp", {"freq":"Q","unit":"CLV_PCH_PRE","s_adj":"SCA","na_item":"B1GQ","geo":"EA20"}),
         ("namq_10_gdp", {"freq":"Q","unit":"CLV_PCH_PRE","s_adj":"SCA","na_item":"B1GQ","geo":"EA19"}),
     ],
-    # Nieuwe HICP-dataset eerst. De oude manr-reeks stopte eind 2025.
+    # HICP ECOICOP v2. Vanaf januari 2026 is de eurozone EA21.
+    # Eurostat heeft tijdens de classificatie-overgang zowel `coicop` als
+    # `ecoicop` als dimensienaam gebruikt. We proberen beide, maar accepteren
+    # een antwoord alleen wanneer alle filters aantoonbaar zijn toegepast.
     "cpi": [
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"CP00","geo":"EA21"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"CP00","geo":"EA21"}),
+        # Historische fallback; nieuwe waarnemingen worden over de cache gelegd.
         ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"CP00","geo":"EA20"}),
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"CP00","geo":"EA19"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"CP00","geo":"EA20"}),
     ],
     "coreCpi": [
+        # Kern-HICP: alle items exclusief energie, voeding, alcohol en tabak.
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"TOT_X_NRG_FOOD","geo":"EA21"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"TOT_X_NRG_FOOD","geo":"EA21"}),
+        # Fallbackcode die in sommige ECOICOP-v2 extracties wordt gebruikt.
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"CP00_X_01_045","geo":"EA21"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"CP00_X_01_045","geo":"EA21"}),
         ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"TOT_X_NRG_FOOD","geo":"EA20"}),
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"TOT_X_NRG_FOOD","geo":"EA19"}),
-        # Fallbackcodes voor classificatiewijzigingen.
-        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","coicop":"CP00_X_01_045","geo":"EA20"}),
+        ("prc_hicp_minr", {"freq":"M","unit":"RCH_A","ecoicop":"TOT_X_NRG_FOOD","geo":"EA20"}),
     ],
     "wages": [
         ("lc_lci_r2_q", {"freq":"Q","unit":"PCH_SM","s_adj":"CA","nace_r2":"B-S","lcstruct":"WAG","geo":"EA20"}),
@@ -183,6 +193,36 @@ def jsonstat_values(obj: dict) -> list[dict]:
     return output
 
 
+def validate_eurostat_response(obj: dict, filters: dict) -> None:
+    """Voorkom dat Eurostat een onbekend filter stilzwijgend negeert.
+
+    De oude parser nam aan dat iedere niet-tijddimensie één categorie bevatte.
+    Als bijvoorbeeld `coicop` niet werd herkend, bevatte het antwoord honderden
+    categorieën en werd per ongeluk de eerste categorie als CPI getoond.
+    """
+    ids = obj.get("id", [])
+    sizes = obj.get("size", [])
+    if not ids or len(ids) != len(sizes):
+        raise RuntimeError("ongeldige JSON-stat structuur")
+
+    for dimension, size in zip(ids, sizes):
+        if dimension != "time" and int(size) != 1:
+            raise RuntimeError(
+                f"filter niet eenduidig toegepast: dimensie {dimension} bevat {size} categorieën"
+            )
+
+    dimensions = obj.get("dimension", {})
+    for key, requested in filters.items():
+        # freq is soms een vaste datasetdimensie; alle andere filters moeten
+        # als dimensie terugkomen wanneer Eurostat ze heeft geaccepteerd.
+        if key not in dimensions:
+            raise RuntimeError(f"Eurostat negeerde onbekend filter: {key}")
+        category_index = dimensions[key].get("category", {}).get("index", {})
+        categories = category_index if isinstance(category_index, list) else list(category_index.keys())
+        if categories and str(requested) not in {str(value) for value in categories}:
+            raise RuntimeError(f"filter {key}={requested} niet teruggevonden in antwoord")
+
+
 def fetch_eurostat(dataset: str, filters: dict) -> list[dict]:
     params = {"lang":"EN", "sinceTimePeriod":"2000"}
     params.update(filters)
@@ -190,7 +230,15 @@ def fetch_eurostat(dataset: str, filters: dict) -> list[dict]:
     obj = json.loads(get(url, "application/json").decode("utf-8"))
     if obj.get("error"):
         raise RuntimeError(str(obj["error"]))
+    validate_eurostat_response(obj, filters)
     return jsonstat_values(obj)
+
+
+def merge_values(existing: list[dict], incoming: list[dict]) -> list[dict]:
+    """Leg nieuwe observaties over bestaande historie heen."""
+    merged = {item["date"]: item["value"] for item in existing}
+    merged.update({item["date"]: item["value"] for item in incoming})
+    return [{"date": d, "value": v} for d, v in sorted(merged.items())]
 
 
 def load_base() -> dict:
@@ -319,6 +367,14 @@ def main() -> int:
                 values = fetch_eurostat(dataset, filters)
                 if not values:
                     raise RuntimeError("lege reeks")
+                # EA21-reeksen kunnen pas in 2026 beginnen. Bewaar daarom de
+                # oudere, reeds gevalideerde historie en vervang alleen overlap.
+                if key in {"cpi", "coreCpi"}:
+                    existing = data.get("series", {}).get(key, {}).get("values", [])
+                    values = merge_values(existing, values)
+                    latest_value = values[-1]["value"]
+                    if not (-5.0 <= latest_value <= 25.0):
+                        raise RuntimeError(f"onplausibele laatste inflatiewaarde: {latest_value}")
                 set_values(data, key, values, "live", f"Eurostat · {dataset}")
                 success.append(key)
                 break
@@ -332,12 +388,12 @@ def main() -> int:
     errors.extend(validate(data))
     data.setdefault("meta", {}).update({
         "name": "MacroVisie",
-        "version": "9.0.0",
+        "version": "9.1.0",
         "updated_at": date.today().isoformat(),
         "mode": "web",
         "successful_updates": sorted(set(success)),
         "warnings": errors,
-        "methodology": "v9: broncontrole, transparante scores en Nederlandse notatie",
+        "methodology": "v9.1: EA21 HICP, filtervalidatie, transparante scores en Nederlandse notatie",
     })
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"MacroVisie v9: {len(set(success))} reeksen bijgewerkt; {len(errors)} waarschuwingen")
