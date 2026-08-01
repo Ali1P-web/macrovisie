@@ -2,10 +2,15 @@ name: Update data and deploy MacroVisie
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "15 5 * * *"
+
   push:
-    branches: ["main"]
+    branches:
+      - main
+    paths-ignore:
+      - "data/dashboard.json"
 
 permissions:
   contents: write
@@ -13,48 +18,65 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: macrovisie-update-and-deploy
+  cancel-in-progress: true
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+    steps:
+      - name: Repository ophalen
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python instellen
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Update official data
+      - name: Officiële data bijwerken
         run: python scripts/update_data.py
 
-      - name: Commit changed data
+      - name: Gewijzigde data committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add data/dashboard.json
-          git diff --cached --quiet || git commit -m "Automatische data-update"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "Geen wijzigingen om te committen"
+          else
+            git commit -m "Automatische data-update"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
 
   deploy:
     needs: update
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Nieuwste versie ophalen
+        uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
 
-      - uses: actions/configure-pages@v5
+      - name: GitHub Pages configureren
+        uses: actions/configure-pages@v5
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Website als artifact uploaden
+        uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-      - name: Deploy to GitHub Pages
+      - name: Publiceren op GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
