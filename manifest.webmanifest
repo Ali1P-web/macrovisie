@@ -1,7 +1,7 @@
 {
-  "name": "MacroVisie v8.0",
+  "name": "MacroVisie v9.0",
   "short_name": "MacroVisie",
-  "description": "Nederlandstalig macro-dashboard met een afzonderlijke educatieve scenario-simulatie.",
+  "description": "Nederlandstalig macro-dashboard met broncontrole, portefeuille-stand en scenario-LAB.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#07111f",

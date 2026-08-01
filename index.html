@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07111f">
-  <meta name="description" content="MacroVisie v8.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
+  <meta name="description" content="MacroVisie v9.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
   <meta name="color-scheme" content="dark light">
-  <title>MacroVisie v8.0</title>
+  <title>MacroVisie v9.0</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
@@ -19,7 +19,7 @@
       <div class="sidebar-head">
         <a class="brand" href="#dashboard" aria-label="MacroVisie dashboard">
           <span class="brand-mark"><img src="assets/logo.svg" alt="" width="30" height="30"></span>
-          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v8.0</small></span>
+          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v9.0</small></span>
         </a>
         <button class="icon-button mobile-only" id="sidebarClose" aria-label="Menu sluiten">×</button>
       </div>
@@ -41,9 +41,11 @@
         <a href="#stress" data-page="stress"><span class="nav-symbol">△</span><span>Stress</span></a>
         <span class="nav-heading simulation-heading">Experiment</span>
         <a href="#simulatie" data-page="simulatie" class="simulation-nav"><span class="nav-symbol">◇</span><span>Scenario-simulatie</span><span class="nav-beta">LAB</span></a>
+        <a href="#portefeuille" data-page="portefeuille" class="simulation-nav"><span class="nav-symbol">◒</span><span>Portefeuille-stand</span><span class="nav-beta">LAB</span></a>
         <span class="nav-heading">Naslag</span>
         <a href="#cheatsheet" data-page="cheatsheet"><span class="nav-symbol">▦</span><span>Cheat sheet</span></a>
         <a href="#begrippen" data-page="begrippen"><span class="nav-symbol">i</span><span>Begrippen</span></a>
+        <a href="#databeheer" data-page="databeheer"><span class="nav-symbol">✎</span><span>Handmatige data</span></a>
       </nav>
 
       <div class="sidebar-foot">
@@ -127,6 +129,7 @@
             <article class="card"><div class="card-header"><div><span class="eyebrow">HEADLINE</span><h3>CPI</h3></div><button class="info-button" data-info="cpi">i</button></div><div class="chart" data-chart="cpi"></div></article>
             <article class="card"><div class="card-header"><div><span class="eyebrow">ONDERLIGGEND</span><h3>Kerninflatie</h3></div><button class="info-button" data-info="coreCpi">i</button></div><div class="chart" data-chart="coreCpi"></div></article>
             <article class="card full"><div class="card-header"><div><span class="eyebrow">VERGELIJKING</span><h3>CPI versus kerninflatie</h3></div></div><div class="chart" data-multi-chart="cpi,coreCpi"></div></article>
+            <article class="card full"><div class="card-header"><div><span class="eyebrow">MARKTVERWACHTING</span><h3>5Y5Y-inflatieswap</h3><p class="card-note">De betrouwbaarste marktmaat in dit dashboard voor langetermijn-inflatiecompensatie. Bevat ook een risicopremie en wordt handmatig bijgewerkt zolang geen vrij herpubliceerbare API beschikbaar is.</p></div><button class="info-button" data-info="marketInflation5y5y">i</button></div><div class="chart" data-chart="marketInflation5y5y"></div></article>
           </div>
         </section>
 
@@ -145,6 +148,7 @@
           <div class="metric-grid" data-page-metrics="obligaties"></div>
           <div class="chart-grid two spaced">
             <article class="card full yield-card"><div class="card-header"><div><span class="eyebrow">SPOTCURVE</span><h3>Actuele yieldcurve</h3></div><span class="source-tag live">ECB</span></div><div class="chart yield-chart" id="yieldCurveChart"></div></article>
+            <article class="card full yield-card"><div class="card-header"><div><span class="eyebrow">VEILIGE BENCHMARKS</span><h3>AAA-eurozonecurve en Duitse Bunds</h3><p class="card-note">AAA-eurozone is een ECB-modelcurve van alle AAA-emittenten; Duitse Bunds zijn actuele federale effecten van de Bundesbank.</p></div><span class="source-tag live">ECB + Bundesbank</span></div><div class="chart yield-chart" id="safeYieldCurveChart"></div></article>
             <article class="card"><div class="card-header"><div><span class="eyebrow">RENTEPAD</span><h3>10Y–2Y rentecurve</h3></div><button class="info-button" data-info="yieldCurve">i</button></div><div class="chart" data-chart="yieldCurve"></div></article>
             <article class="card"><div class="card-header"><div><span class="eyebrow">KOOPKRACHT</span><h3>10Y reële yield</h3></div><button class="info-button" data-info="realYield">i</button></div><div class="chart" data-chart="realYield"></div></article>
             <article class="card"><div class="card-header"><div><span class="eyebrow">INFLATIEVERWACHTING</span><h3>Break-eveninflatie</h3></div><button class="info-button" data-info="breakeven">i</button></div><div class="chart" data-chart="breakeven"></div></article>
@@ -250,6 +254,42 @@
               <ul><li>De pijlen zijn richtingen, geen rendementsvoorspellingen.</li><li>Effecten kunnen elkaar tegenwerken.</li><li>De euro is altijd relatief aan andere valuta.</li><li>Goud reageert vooral op reële rente, liquiditeit en stress.</li></ul>
             </article>
           </div>
+        </section>
+
+        <section class="page simulation-page" data-page-panel="portefeuille">
+          <div class="simulation-banner"><div><span class="lab-badge">LAB</span><span>LOS VAN HET MACRODASHBOARD</span></div><p>Deze portefeuille-stand bewaart invoer alleen op jouw apparaat. Geen beleggingsadvies.</p></div>
+          <div class="page-intro"><div><p class="page-question">Hoe is mijn portefeuille blootgesteld aan macrofactoren?</p><p>Vul percentages in. De som wordt automatisch gecontroleerd en de gevoeligheden zijn kwalitatief.</p></div></div>
+          <div class="portfolio-layout">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">ALLOCATIE</span><h3>Portefeuille invoeren</h3></div><span class="source-tag manual">lokaal</span></div><div id="portfolioInputs" class="portfolio-inputs"></div><div class="portfolio-total"><span>Totaal</span><strong id="portfolioTotal">0,0%</strong></div><button class="secondary-button" id="portfolioReset">Herstel voorbeeld</button></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">SAMENSTELLING</span><h3>Verdeling</h3></div></div><div id="portfolioDonut" class="portfolio-donut"></div><div id="portfolioLegend" class="portfolio-legend"></div></article>
+          </div>
+          <div class="portfolio-analysis spaced">
+            <article class="card"><span class="eyebrow">MACROGEVOELIGHEID</span><h3>Waar reageert deze mix vooral op?</h3><div id="portfolioSensitivity" class="sensitivity-grid"></div></article>
+            <article class="card"><span class="eyebrow">UITLEG</span><h3>Interpretatie</h3><div id="portfolioCommentary" class="portfolio-commentary"></div></article>
+          </div>
+        </section>
+
+        <section class="page" data-page-panel="databeheer">
+          <div class="page-intro"><div><p class="page-question">Handmatige reeksen eenvoudig bijwerken</p><p>PMI, OIS, credit spreads en 5Y5Y-inflatieswaps hebben geen stabiele, vrij herpubliceerbare API in deze versie. Maak hier één CSV-regel en plak die in <code>data/manual.csv</code>.</p></div></div>
+          <div class="manual-layout">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">INVOERHULP</span><h3>Nieuwe maand</h3></div><span class="source-tag manual">handmatig</span></div>
+              <form id="manualForm" class="manual-form">
+                <label>Datum<input id="manualDate" type="month" required></label>
+                <label>PMI industrie<input id="manualPmiM" type="number" step="0.1"></label>
+                <label>PMI diensten<input id="manualPmiS" type="number" step="0.1"></label>
+                <label>PMI composite<input id="manualPmiC" type="number" step="0.1"></label>
+                <label>OIS cuts (stappen)<input id="manualOis" type="number" step="0.25"></label>
+                <label>Credit spread (%)<input id="manualSpread" type="number" step="0.01"></label>
+                <label>5Y5Y-inflatieswap (%)<input id="manual5y5y" type="number" step="0.01"></label>
+                <label>Consensus PMI<input id="manualConsensusPmi" type="number" step="0.1"></label>
+                <label>Consensus kerninflatie (%)<input id="manualConsensusCore" type="number" step="0.1"></label>
+                <label>Consensus ECB-verrassing (bp)<input id="manualConsensusEcb" type="number" step="5"></label>
+                <button class="primary-button" type="submit">Maak CSV-regel</button>
+              </form>
+            </article>
+            <article class="card"><span class="eyebrow">RESULTAAT</span><h3>Kopiëren naar GitHub</h3><pre id="manualCsvOutput" class="code-output">Vul de velden in en klik op “Maak CSV-regel”.</pre><div class="button-row"><button class="secondary-button" id="copyManualCsv">Kopieer regel</button><a class="secondary-button" href="https://github.com/Ali1P-web/macrovisie/edit/main/data/manual.csv" target="_blank" rel="noopener">Open manual.csv</a></div><ol class="compact-steps"><li>Open <code>manual.csv</code>.</li><li>Zet de nieuwe regel onderaan.</li><li>Klik op <strong>Commit changes</strong>.</li><li>GitHub Actions werkt de site automatisch bij.</li></ol></article>
+          </div>
+          <article class="card spaced"><div class="card-header"><div><span class="eyebrow">BRONCONTROLE</span><h3>Status van alle reeksen</h3></div></div><div class="table-wrap"><table><thead><tr><th>Reeks</th><th>Laatste observatie</th><th>Bron</th><th>Status</th></tr></thead><tbody id="dataAuditTable"></tbody></table></div></article>
         </section>
 
         <section class="page" data-page-panel="cheatsheet">

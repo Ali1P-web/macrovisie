@@ -1,46 +1,44 @@
-# MacroVisie v8.0
+# MacroVisie v9.0
 
-MacroVisie is een Nederlandstalig, statisch macro-dashboard voor de eurozone. Versie 8.0 voegt een **duidelijk afgescheiden scenario-simulatie** toe en slaat versie 7 bewust over.
+Nederlandstalig macro-dashboard voor de eurozone, gebouwd als statische GitHub Pages-app.
 
-## Nieuw in v8.0
+## Nieuw in v9
 
-- Afzonderlijke pagina **Scenario-simulatie** onder het navigatieblok `Experiment`.
-- De simulatie verandert nooit de actuele dashboarddata.
-- Vijf instelbare verrassingen: groei/PMI, kerninflatie, ECB, liquiditeit en credit spreads.
-- Mechanische richting voor langlopende staatsobligaties, aandelen, euro, goud, Investment Grade en High Yield.
-- Vier voorbeeldscenario's en een neutrale reset.
-- Automatisch opgebouwde redeneerketen.
-- Expliciete waarschuwingen dat uitkomsten educatief zijn en geen prognose of advies.
+- Broncontrole en verouderingslabel per reeks.
+- HICP-query aangepast aan `prc_hicp_minr`.
+- ECB 10-jaars reële benchmarkyield gecorrigeerd.
+- AAA-eurozone spotcurve (ECB) toegevoegd.
+- Duitse Schatz/Bobl/Bund 2Y, 5Y, 10Y en 30Y (Deutsche Bundesbank) toegevoegd.
+- Inflatieverwachting opgesplitst in:
+  - 5Y5Y-inflatieswap: marktmaat, handmatig zolang geen vrij herpubliceerbare stabiele API beschikbaar is;
+  - afgeleide inflatiecompensatie: expliciet als proxy gelabeld.
+- Transparante Macro Pulse: elke score is open te klappen.
+- Nederlandse getalnotatie en correcte ECB-balansweergave in miljarden euro.
+- Apart Portefeuille-LAB met alle besproken activaklassen.
+- Scenario-LAB toont de huidige consensus-baselines.
+- Pagina **Handmatige data** maakt een complete CSV-regel en linkt direct naar GitHub.
 
-## Lokaal openen
+## Automatische bronnen
 
-Open `index.html`. Voor volledige PWA-functionaliteit kun je een lokale webserver gebruiken:
+- ECB Data Portal
+- Eurostat Statistics API
+- Deutsche Bundesbank SDMX API
 
-```bash
-python -m http.server 8000
-```
+## Bewust handmatig
 
-Open daarna `http://localhost:8000`.
+PMI, OIS, credit spreads en de 5Y5Y-inflatieswap zijn commercieel gelicentieerde marktdata of hebben geen stabiele, vrij herpubliceerbare API. Vul deze in via **Handmatige data** in de app. Het bestand is `data/manual.csv`.
 
-## GitHub Pages
+## Publiceren
 
-1. Maak een nieuwe GitHub-repository.
-2. Upload de **inhoud** van deze map naar de root van de repository.
-3. Open `Settings → Pages`.
-4. Kies bij Source voor **GitHub Actions**.
-5. Open `Actions` en voer `Update data and deploy` één keer handmatig uit.
+Vervang de bestanden in je repository door de inhoud van deze map. Controleer daarna:
 
-De workflow werkt daarna dagelijks de databestanden bij en publiceert de website.
+1. **Settings → Pages → GitHub Actions**
+2. **Actions → Update data and deploy MacroVisie → Run workflow**
+3. Open `data/dashboard.json` en controleer `successful_updates` en `warnings`.
 
-## Belangrijk over de simulatie
+## Belangrijk onderscheid
 
-Het model is bewust eenvoudig en transparant. Het vertaalt macroverrassingen naar richting, niet naar voorspelde rendementen. Tegenstrijdige effecten worden bij elkaar opgeteld. De echte marktreactie hangt altijd af van positionering, waardering en wat al is ingeprijsd.
-
-## Bestanden
-
-- `index.html` — interface en pagina's
-- `css/style.css` — vormgeving, inclusief aparte simulatiestijl
-- `js/app.js` — dashboard- en simulatielogica
-- `data/` — huidige en voorbeelddata
-- `scripts/update_data.py` — updater
-- `.github/workflows/update-and-deploy.yml` — dagelijkse update en GitHub Pages-deploy
+- `AAA-eurozonecurve`: ECB-modelcurve van alle AAA-emittenten; niet uitsluitend Duitsland.
+- `Duitse Bunds`: actuele federale effecten, rechtstreeks van de Bundesbank.
+- `5Y5Y-inflatieswap`: marktgebaseerde inflatiecompensatie, inclusief risicopremie.
+- `inflationProxy`: nominale benchmark minus reële benchmark; alleen richtinggevend.
