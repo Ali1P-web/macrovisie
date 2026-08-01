@@ -1,10 +1,23 @@
 {
   "meta": {
     "name": "MacroVisie",
-    "version": "9.2.0",
-    "updated_at": "2026-07-31",
+    "version": "9.3.0",
+    "updated_at": "2026-08-01",
     "mode": "sample",
-    "methodology": "v9.2: HICP via coicop18; ongeldige data wordt niet getoond"
+    "methodology": "v9.3: OIS 3/6/12 maanden, Euro High Yield OAS en inflatiegelinkte obligaties in Portfolio LAB",
+    "successful_updates": [
+      "consensusCoreCpi",
+      "consensusEcbBp",
+      "consensusPmi",
+      "creditSpread",
+      "marketInflation5y5y",
+      "oisCuts12m",
+      "oisCuts3m",
+      "oisCuts6m",
+      "pmiComposite",
+      "pmiManufacturing",
+      "pmiServices"
+    ]
   },
   "series": {
     "pmiManufacturing": {
@@ -375,10 +388,13 @@
         },
         {
           "date": "2026-07-01",
-          "value": 45.3
+          "value": 52.0
         }
       ],
-      "threshold": 50
+      "threshold": 50,
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
     },
     "pmiServices": {
       "label": "PMI Services",
@@ -748,10 +764,13 @@
         },
         {
           "date": "2026-07-01",
-          "value": 50.43
+          "value": 51.6
         }
       ],
-      "threshold": 50
+      "threshold": 50,
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
     },
     "pmiComposite": {
       "label": "PMI Composite",
@@ -1121,10 +1140,13 @@
         },
         {
           "date": "2026-07-01",
-          "value": 49.55
+          "value": 51.9
         }
       ],
-      "threshold": 50
+      "threshold": 50,
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
     },
     "gdp": {
       "label": "BBP-groei",
@@ -2391,378 +2413,6 @@
         {
           "date": "2026-07-01",
           "value": 2.25
-        }
-      ]
-    },
-    "oisCuts": {
-      "label": "OIS-stappen 12M",
-      "unit": "stappen",
-      "category": "ECB",
-      "source": "handmatig",
-      "values": [
-        {
-          "date": "2019-01-01",
-          "value": 2.28
-        },
-        {
-          "date": "2019-02-01",
-          "value": 2.54
-        },
-        {
-          "date": "2019-03-01",
-          "value": 2.75
-        },
-        {
-          "date": "2019-04-01",
-          "value": 2.8
-        },
-        {
-          "date": "2019-05-01",
-          "value": 2.73
-        },
-        {
-          "date": "2019-06-01",
-          "value": 3.02
-        },
-        {
-          "date": "2019-07-01",
-          "value": 3.06
-        },
-        {
-          "date": "2019-08-01",
-          "value": 3.06
-        },
-        {
-          "date": "2019-09-01",
-          "value": 2.99
-        },
-        {
-          "date": "2019-10-01",
-          "value": 2.98
-        },
-        {
-          "date": "2019-11-01",
-          "value": 2.98
-        },
-        {
-          "date": "2019-12-01",
-          "value": 2.63
-        },
-        {
-          "date": "2020-01-01",
-          "value": 2.7
-        },
-        {
-          "date": "2020-02-01",
-          "value": 2.46
-        },
-        {
-          "date": "2020-03-01",
-          "value": 2.32
-        },
-        {
-          "date": "2020-04-01",
-          "value": 2.47
-        },
-        {
-          "date": "2020-05-01",
-          "value": 2.12
-        },
-        {
-          "date": "2020-06-01",
-          "value": 1.97
-        },
-        {
-          "date": "2020-07-01",
-          "value": 1.77
-        },
-        {
-          "date": "2020-08-01",
-          "value": 1.73
-        },
-        {
-          "date": "2020-09-01",
-          "value": 1.35
-        },
-        {
-          "date": "2020-10-01",
-          "value": 1.41
-        },
-        {
-          "date": "2020-11-01",
-          "value": 0.99
-        },
-        {
-          "date": "2020-12-01",
-          "value": 1.21
-        },
-        {
-          "date": "2021-01-01",
-          "value": 0.71
-        },
-        {
-          "date": "2021-02-01",
-          "value": 0.83
-        },
-        {
-          "date": "2021-03-01",
-          "value": 0.61
-        },
-        {
-          "date": "2021-04-01",
-          "value": 0.44
-        },
-        {
-          "date": "2021-05-01",
-          "value": 0.29
-        },
-        {
-          "date": "2021-06-01",
-          "value": 0.24
-        },
-        {
-          "date": "2021-07-01",
-          "value": 0.36
-        },
-        {
-          "date": "2021-08-01",
-          "value": 0.22
-        },
-        {
-          "date": "2021-09-01",
-          "value": 0.22
-        },
-        {
-          "date": "2021-10-01",
-          "value": 0.1
-        },
-        {
-          "date": "2021-11-01",
-          "value": 0.29
-        },
-        {
-          "date": "2021-12-01",
-          "value": 0.15
-        },
-        {
-          "date": "2022-01-01",
-          "value": 0.36
-        },
-        {
-          "date": "2022-02-01",
-          "value": 0.52
-        },
-        {
-          "date": "2022-03-01",
-          "value": 0.58
-        },
-        {
-          "date": "2022-04-01",
-          "value": 0.72
-        },
-        {
-          "date": "2022-05-01",
-          "value": 0.86
-        },
-        {
-          "date": "2022-06-01",
-          "value": 0.85
-        },
-        {
-          "date": "2022-07-01",
-          "value": 1.34
-        },
-        {
-          "date": "2022-08-01",
-          "value": 1.39
-        },
-        {
-          "date": "2022-09-01",
-          "value": 1.58
-        },
-        {
-          "date": "2022-10-01",
-          "value": 1.86
-        },
-        {
-          "date": "2022-11-01",
-          "value": 1.81
-        },
-        {
-          "date": "2022-12-01",
-          "value": 1.93
-        },
-        {
-          "date": "2023-01-01",
-          "value": 2.08
-        },
-        {
-          "date": "2023-02-01",
-          "value": 2.24
-        },
-        {
-          "date": "2023-03-01",
-          "value": 2.38
-        },
-        {
-          "date": "2023-04-01",
-          "value": 2.52
-        },
-        {
-          "date": "2023-05-01",
-          "value": 2.58
-        },
-        {
-          "date": "2023-06-01",
-          "value": 2.8
-        },
-        {
-          "date": "2023-07-01",
-          "value": 2.8
-        },
-        {
-          "date": "2023-08-01",
-          "value": 2.89
-        },
-        {
-          "date": "2023-09-01",
-          "value": 3.06
-        },
-        {
-          "date": "2023-10-01",
-          "value": 2.92
-        },
-        {
-          "date": "2023-11-01",
-          "value": 3.15
-        },
-        {
-          "date": "2023-12-01",
-          "value": 3.1
-        },
-        {
-          "date": "2024-01-01",
-          "value": 2.84
-        },
-        {
-          "date": "2024-02-01",
-          "value": 2.99
-        },
-        {
-          "date": "2024-03-01",
-          "value": 2.62
-        },
-        {
-          "date": "2024-04-01",
-          "value": 2.47
-        },
-        {
-          "date": "2024-05-01",
-          "value": 2.75
-        },
-        {
-          "date": "2024-06-01",
-          "value": 2.18
-        },
-        {
-          "date": "2024-07-01",
-          "value": 2.02
-        },
-        {
-          "date": "2024-08-01",
-          "value": 2.24
-        },
-        {
-          "date": "2024-09-01",
-          "value": 1.69
-        },
-        {
-          "date": "2024-10-01",
-          "value": 1.81
-        },
-        {
-          "date": "2024-11-01",
-          "value": 1.59
-        },
-        {
-          "date": "2024-12-01",
-          "value": 1.27
-        },
-        {
-          "date": "2025-01-01",
-          "value": 1.11
-        },
-        {
-          "date": "2025-02-01",
-          "value": 1.26
-        },
-        {
-          "date": "2025-03-01",
-          "value": 0.85
-        },
-        {
-          "date": "2025-04-01",
-          "value": 0.64
-        },
-        {
-          "date": "2025-05-01",
-          "value": 0.59
-        },
-        {
-          "date": "2025-06-01",
-          "value": 0.61
-        },
-        {
-          "date": "2025-07-01",
-          "value": 0.31
-        },
-        {
-          "date": "2025-08-01",
-          "value": 0.14
-        },
-        {
-          "date": "2025-09-01",
-          "value": 0.39
-        },
-        {
-          "date": "2025-10-01",
-          "value": 0.04
-        },
-        {
-          "date": "2025-11-01",
-          "value": 0.01
-        },
-        {
-          "date": "2025-12-01",
-          "value": -0.01
-        },
-        {
-          "date": "2026-01-01",
-          "value": 0.45
-        },
-        {
-          "date": "2026-02-01",
-          "value": 0.25
-        },
-        {
-          "date": "2026-03-01",
-          "value": 0.45
-        },
-        {
-          "date": "2026-04-01",
-          "value": 0.45
-        },
-        {
-          "date": "2026-05-01",
-          "value": 0.74
-        },
-        {
-          "date": "2026-06-01",
-          "value": 0.59
-        },
-        {
-          "date": "2026-07-01",
-          "value": 0.72
         }
       ]
     },
@@ -6116,8 +5766,8 @@
       ]
     },
     "creditSpread": {
-      "label": "Credit spread",
-      "unit": "%-punt",
+      "label": "Euro High Yield OAS",
+      "unit": "%",
       "category": "Stress",
       "source": "handmatig",
       "values": [
@@ -6483,9 +6133,110 @@
         },
         {
           "date": "2026-07-01",
-          "value": 1.3
+          "value": 2.5
         }
-      ]
+      ],
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
+    },
+    "oisCuts3m": {
+      "values": [
+        {
+          "date": "2026-07-01",
+          "value": -0.9
+        }
+      ],
+      "label": "OIS 3 maanden",
+      "unit": "stappen",
+      "source": "handmatig",
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
+    },
+    "oisCuts6m": {
+      "values": [
+        {
+          "date": "2026-07-01",
+          "value": -1.6
+        }
+      ],
+      "label": "OIS 6 maanden",
+      "unit": "stappen",
+      "source": "handmatig",
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
+    },
+    "oisCuts12m": {
+      "values": [
+        {
+          "date": "2026-07-01",
+          "value": -2.0
+        }
+      ],
+      "label": "OIS 12 maanden",
+      "unit": "stappen",
+      "source": "handmatig",
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
+    },
+    "marketInflation5y5y": {
+      "values": [
+        {
+          "date": "2026-07-01",
+          "value": 2.1
+        }
+      ],
+      "label": "5Y5Y-inflatieswap",
+      "unit": "%",
+      "source": "handmatig",
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
+    },
+    "consensusPmi": {
+      "values": [
+        {
+          "date": "2026-07-01",
+          "value": 50.3
+        }
+      ],
+      "label": "Consensus PMI",
+      "unit": "",
+      "source": "handmatig",
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
+    },
+    "consensusCoreCpi": {
+      "values": [
+        {
+          "date": "2026-07-01",
+          "value": 2.4
+        }
+      ],
+      "label": "Consensus kerninflatie",
+      "unit": "%",
+      "source": "handmatig",
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
+    },
+    "consensusEcbBp": {
+      "values": [
+        {
+          "date": "2026-07-01",
+          "value": 0.0
+        }
+      ],
+      "label": "ECB-verrassing",
+      "unit": "bp",
+      "source": "handmatig",
+      "source_name": "data/manual.csv",
+      "freshness": "actueel",
+      "data_quality": true
     }
   }
 }

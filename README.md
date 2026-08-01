@@ -1,4 +1,4 @@
-# MacroVisie v9.2.0
+# MacroVisie v9.3.0
 
 Nederlandstalig macro-dashboard voor de eurozone, gebouwd als statische GitHub Pages-app.
 
@@ -26,7 +26,7 @@ Nederlandstalig macro-dashboard voor de eurozone, gebouwd als statische GitHub P
 
 ## Bewust handmatig
 
-PMI, OIS, credit spreads en de 5Y5Y-inflatieswap zijn commercieel gelicentieerde marktdata of hebben geen stabiele, vrij herpubliceerbare API. Vul deze in via **Handmatige data** in de app. Het bestand is `data/manual.csv`.
+PMI, OIS per 3/6/12 maanden, Euro High Yield OAS en de 5Y5Y-inflatieswap zijn commercieel gelicentieerde marktdata of hebben geen stabiele, vrij herpubliceerbare API. Vul deze in via **Handmatige data** in de app. Het bestand is `data/manual.csv`.
 
 ## Publiceren
 
@@ -42,3 +42,13 @@ Vervang de bestanden in je repository door de inhoud van deze map. Controleer da
 - `Duitse Bunds`: actuele federale effecten, rechtstreeks van de Bundesbank.
 - `5Y5Y-inflatieswap`: marktgebaseerde inflatiecompensatie, inclusief risicopremie.
 - `inflationProxy`: nominale benchmark minus reële benchmark; alleen richtinggevend.
+
+
+## Handmatige waarden juli 2026
+
+- PMI: manufacturing 52.0, services 51.6, composite 51.9; Reuters-consensus composite 50.3.
+- OIS: indicatieve marktpricing per 31 juli 2026: -0.9 stap (3m), -1.6 stap (6m), -2.0 stappen (12m). Negatief betekent renteverhogingen. Dit zijn afgeronde marktinschattingen, geen officiële fixing.
+- Euro High Yield OAS: 2.50% op 23 juli 2026, ICE BofA Euro High Yield Index OAS via FRED.
+- 5Y5Y-inflatieswap: 2.10% als afgeronde handmatige marktinschatting; controleer deze bij een professionele marktbron voordat je hem als exact dagcijfer gebruikt.
+- Consensus kerninflatie: 2.4% voor 2026 uit de ECB Survey of Professional Forecasters van juli 2026.
+- ECB-verrassing: 0 bp voor de vergadering van 23 juli 2026, omdat de depositorente conform verwachting ongewijzigd bleef.

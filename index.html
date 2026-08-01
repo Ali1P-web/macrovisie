@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07111f">
-  <meta name="description" content="MacroVisie v9.2.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
+  <meta name="description" content="MacroVisie v9.3.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
   <meta name="color-scheme" content="dark light">
-  <title>MacroVisie v9.2.0</title>
+  <title>MacroVisie v9.3.0</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
@@ -19,7 +19,7 @@
       <div class="sidebar-head">
         <a class="brand" href="#dashboard" aria-label="MacroVisie dashboard">
           <span class="brand-mark"><img src="assets/logo.svg" alt="" width="30" height="30"></span>
-          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v9.2</small></span>
+          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v9.3</small></span>
         </a>
         <button class="icon-button mobile-only" id="sidebarClose" aria-label="Menu sluiten">×</button>
       </div>
@@ -138,7 +138,7 @@
           <div class="metric-grid" data-page-metrics="ecb"></div>
           <div class="chart-grid two spaced">
             <article class="card"><div class="card-header"><div><span class="eyebrow">BELEID</span><h3>ECB-depositorente</h3></div><button class="info-button" data-info="depositRate">i</button></div><div class="chart" data-chart="depositRate"></div></article>
-            <article class="card"><div class="card-header"><div><span class="eyebrow">MARKT</span><h3>OIS: verwachte stappen</h3></div><button class="info-button" data-info="oisCuts">i</button></div><div class="chart" data-chart="oisCuts"></div></article>
+            <article class="card full"><div class="card-header"><div><span class="eyebrow">MARKT</span><h3>OIS: ingeprijsde ECB-stappen per horizon</h3><p class="card-note">Negatief = verhogingen; positief = verlagingen. Eén stap is 25 basispunten.</p></div><button class="info-button" data-info="oisCuts12m">i</button></div><div class="chart" data-multi-chart="oisCuts3m,oisCuts6m,oisCuts12m"></div></article>
           </div>
           <article class="card insight-card spaced"><span class="eyebrow">LEESREGEL</span><h3>Werk altijd van verwachting naar verrassing</h3><p>Een rentebesluit is pas marktbewegend wanneer het afwijkt van wat via OIS al was ingeprijsd.</p></article>
         </section>
@@ -169,7 +169,7 @@
         <section class="page" data-page-panel="stress">
           <div class="page-intro"><div><p class="page-question">Neemt de spanning in het financiële systeem toe?</p><p>Credit spreads laten zien hoeveel extra vergoeding beleggers eisen boven staatsobligaties.</p></div><div class="range-picker" data-range-picker></div></div>
           <div class="metric-grid" data-page-metrics="stress"></div>
-          <article class="card spaced"><div class="card-header"><div><span class="eyebrow">RISICOPREMIE</span><h3>Credit spread</h3></div><button class="info-button" data-info="creditSpread">i</button></div><div class="chart tall" data-chart="creditSpread"></div></article>
+          <article class="card spaced"><div class="card-header"><div><span class="eyebrow">RISICOPREMIE</span><h3>Euro High Yield OAS</h3></div><button class="info-button" data-info="creditSpread">i</button></div><div class="chart tall" data-chart="creditSpread"></div></article>
         </section>
 
         <section class="page simulation-page" data-page-panel="simulatie">
@@ -270,7 +270,7 @@
         </section>
 
         <section class="page" data-page-panel="databeheer">
-          <div class="page-intro"><div><p class="page-question">Handmatige reeksen eenvoudig bijwerken</p><p>PMI, OIS, credit spreads en 5Y5Y-inflatieswaps hebben geen stabiele, vrij herpubliceerbare API in deze versie. Maak hier één CSV-regel en plak die in <code>data/manual.csv</code>.</p></div></div>
+          <div class="page-intro"><div><p class="page-question">Handmatige reeksen eenvoudig bijwerken</p><p>PMI, OIS-horizonnen, Euro High Yield OAS en 5Y5Y-inflatieswaps hebben geen stabiele, vrij herpubliceerbare API in deze versie. Maak hier één CSV-regel en plak die in <code>data/manual.csv</code>.</p></div></div>
           <div class="manual-layout">
             <article class="card"><div class="card-header"><div><span class="eyebrow">INVOERHULP</span><h3>Nieuwe maand</h3></div><span class="source-tag manual">handmatig</span></div>
               <form id="manualForm" class="manual-form">
@@ -278,8 +278,10 @@
                 <label>PMI industrie<input id="manualPmiM" type="number" step="0.1"></label>
                 <label>PMI diensten<input id="manualPmiS" type="number" step="0.1"></label>
                 <label>PMI composite<input id="manualPmiC" type="number" step="0.1"></label>
-                <label>OIS cuts (stappen)<input id="manualOis" type="number" step="0.25"></label>
-                <label>Credit spread (%)<input id="manualSpread" type="number" step="0.01"></label>
+                <label>OIS 3 maanden (stappen)<input id="manualOis3m" type="number" step="0.1"></label>
+                <label>OIS 6 maanden (stappen)<input id="manualOis6m" type="number" step="0.1"></label>
+                <label>OIS 12 maanden (stappen)<input id="manualOis12m" type="number" step="0.1"></label>
+                <label>Euro High Yield OAS (%)<input id="manualSpread" type="number" step="0.01"></label>
                 <label>5Y5Y-inflatieswap (%)<input id="manual5y5y" type="number" step="0.01"></label>
                 <label>Consensus PMI<input id="manualConsensusPmi" type="number" step="0.1"></label>
                 <label>Consensus kerninflatie (%)<input id="manualConsensusCore" type="number" step="0.1"></label>
@@ -294,7 +296,7 @@
 
         <section class="page" data-page-panel="cheatsheet">
           <div class="page-intro"><div><p class="page-question">Wanneer doen verschillende activaklassen het meestal goed?</p><p>Een vaste, eenvoudige vertaaltabel. Werkelijke marktbewegingen hangen ook af van wat al is ingeprijsd.</p></div></div>
-          <article class="card"><div class="table-wrap"><table class="cheat-table"><thead><tr><th>Activaklasse</th><th>Groei</th><th>Inflatie</th><th>Reële rente</th><th>Liquiditeit</th><th>Stress</th></tr></thead><tbody><tr><td>Aandelen</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓</td></tr><tr><td>Langlopende staatsobligaties</td><td>↓</td><td>↓</td><td>↓</td><td>↑</td><td>↑</td></tr><tr><td>Kortlopende staatsobligaties</td><td>↓</td><td>↓</td><td>↓</td><td>→</td><td>↑</td></tr><tr><td>Investment Grade</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓</td></tr><tr><td>High Yield</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓↓</td></tr><tr><td>Goud</td><td>↓</td><td>↑</td><td>↓</td><td>↑</td><td>↑</td></tr><tr><td>Euro*</td><td>↑</td><td>↑</td><td>↑</td><td>↓</td><td>→</td></tr></tbody></table></div></article>
+          <article class="card"><div class="table-wrap"><table class="cheat-table"><thead><tr><th>Activaklasse</th><th>Groei</th><th>Inflatie</th><th>Reële rente</th><th>Liquiditeit</th><th>Stress</th></tr></thead><tbody><tr><td>Aandelen</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓</td></tr><tr><td>Langlopende staatsobligaties</td><td>↓</td><td>↓</td><td>↓</td><td>↑</td><td>↑</td></tr><tr><td>Kortlopende staatsobligaties</td><td>↓</td><td>↓</td><td>↓</td><td>→</td><td>↑</td></tr><tr><td>Investment Grade</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓</td></tr><tr><td>Inflatiegelinkte obligaties</td><td>→</td><td>↑</td><td>↓</td><td>↑</td><td>→</td></tr><tr><td>High Yield</td><td>↑</td><td>↓</td><td>↓</td><td>↑</td><td>↓↓</td></tr><tr><td>Goud</td><td>↓</td><td>↑</td><td>↓</td><td>↑</td><td>↑</td></tr><tr><td>Euro*</td><td>↑</td><td>↑</td><td>↑</td><td>↓</td><td>→</td></tr></tbody></table></div></article>
           <article class="card reasoning-card spaced"><span class="eyebrow">REDENEERSCHEMA</span><ol><li>Groei: versnelt of vertraagt?</li><li>Arbeidsmarkt: krapper of ruimer?</li><li>Inflatie: stijgt of daalt de onderliggende druk?</li><li>ECB: hawkish of dovish?</li><li>Marktverwachting: wat is al ingeprijsd?</li><li>Verrassing: wijkt de realiteit daarvan af?</li><li>Vertaling: wat betekent dit voor de activaklassen?</li></ol></article>
         </section>
 

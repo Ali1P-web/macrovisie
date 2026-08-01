@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""MacroVisie v9.2 updater.
+"""MacroVisie v9.3 updater.
 
 Bronnen:
 - ECB Data Portal: beleidsrente, eurozone-curves, M3, Eurosysteembalans.
@@ -90,6 +90,10 @@ LABELS = {
     "bund10y": ("Duitse Bund 10 jaar", "%"),
     "bund30y": ("Duitse Bund 30 jaar", "%"),
     "marketInflation5y5y": ("5Y5Y-inflatieswap", "%"),
+    "oisCuts3m": ("OIS 3 maanden", "stappen"),
+    "oisCuts6m": ("OIS 6 maanden", "stappen"),
+    "oisCuts12m": ("OIS 12 maanden", "stappen"),
+    "creditSpread": ("Euro High Yield OAS", "%"),
     "inflationProxy": ("Afgeleide inflatiecompensatie", "%"),
 }
 
@@ -274,7 +278,7 @@ def merge_manual(data: dict) -> list[str]:
         return []
     rows = list(csv.DictReader(MANUAL.open(encoding="utf-8-sig")))
     keys = [
-        "pmiManufacturing", "pmiServices", "pmiComposite", "oisCuts",
+        "pmiManufacturing", "pmiServices", "pmiComposite", "oisCuts3m", "oisCuts6m", "oisCuts12m",
         "creditSpread", "marketInflation5y5y", "consensusPmi",
         "consensusCoreCpi", "consensusEcbBp"
     ]
@@ -397,7 +401,7 @@ def main() -> int:
         "mode": "web",
         "successful_updates": sorted(set(success)),
         "warnings": errors,
-        "methodology": "v9.2: geverifieerde ECOICOP2-HICP via coicop18, fail-closed datakwaliteit en Nederlandse notatie",
+        "methodology": "v9.3: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     })
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"MacroVisie v9: {len(set(success))} reeksen bijgewerkt; {len(errors)} waarschuwingen")
