@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07111f">
-  <meta name="description" content="MacroVisie v9.3.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
+  <meta name="description" content="MacroVisie v10.1.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
   <meta name="color-scheme" content="dark light">
-  <title>MacroVisie v9.3.0</title>
+  <title>MacroVisie v10.1.0</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
@@ -19,7 +19,7 @@
       <div class="sidebar-head">
         <a class="brand" href="#dashboard" aria-label="MacroVisie dashboard">
           <span class="brand-mark"><img src="assets/logo.svg" alt="" width="30" height="30"></span>
-          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v9.3</small></span>
+          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v10.1</small></span>
         </a>
         <button class="icon-button mobile-only" id="sidebarClose" aria-label="Menu sluiten">×</button>
       </div>
@@ -42,6 +42,10 @@
         <span class="nav-heading simulation-heading">Experiment</span>
         <a href="#simulatie" data-page="simulatie" class="simulation-nav"><span class="nav-symbol">◇</span><span>Scenario-simulatie</span><span class="nav-beta">LAB</span></a>
         <a href="#portefeuille" data-page="portefeuille" class="simulation-nav"><span class="nav-symbol">◒</span><span>Portefeuille-stand</span><span class="nav-beta">LAB</span></a>
+        <a href="#valuation" data-page="valuation" class="simulation-nav"><span class="nav-symbol">V</span><span>Valuation</span><span class="nav-beta">LAB</span></a>
+        <a href="#markten" data-page="markten" class="simulation-nav"><span class="nav-symbol">⇄</span><span>Markten vergelijken</span><span class="nav-beta">BETA</span></a>
+        <span class="nav-heading">Historie</span>
+        <a href="#regimes" data-page="regimes"><span class="nav-symbol">◷</span><span>Historische regimes</span></a>
         <span class="nav-heading">Naslag</span>
         <a href="#cheatsheet" data-page="cheatsheet"><span class="nav-symbol">▦</span><span>Cheat sheet</span></a>
         <a href="#begrippen" data-page="begrippen"><span class="nav-symbol">i</span><span>Begrippen</span></a>
@@ -83,6 +87,17 @@
             <div class="pulse-copy"><span class="eyebrow">MACRO PULSE</span><h3 id="pulseTitle">Vier krachten die het regime bepalen</h3><p>Een beschrijvende samenvatting van de huidige data. Dit is geen koop- of verkoopadvies.</p></div>
             <div class="pulse-grid" id="pulseGrid"></div>
           </section>
+
+          <article class="card recession-card">
+            <div><span class="eyebrow">12-MAANDS MODELSCORE</span><h3>Recessiekans</h3><p>Educatieve kansinschatting op basis van groei, curve, arbeidsmarkt, krediet en liquiditeit.</p><button class="text-button inline-explain" id="recessionExplainBtn" type="button">Bekijk volledige berekening</button></div>
+            <div class="recession-gauge"><strong id="recessionProbability">—</strong><span id="recessionLabel">onvoldoende data</span><div class="confidence-line"><small>Modelconfidence</small><b id="recessionConfidence">—</b></div></div>
+          </article>
+          <article class="card model-explanation" id="recessionExplanation" hidden>
+            <div class="card-header"><div><span class="eyebrow">TRANSPARANT MODEL</span><h3>Zo wordt de recessiekans berekend</h3></div><span class="source-tag calculated">heuristiek</span></div>
+            <p class="card-note">Elke beschikbare indicator wordt eerst omgezet naar een stressscore van 0 tot 1. Daarna neemt het model het gemiddelde, schaalt dit naar 5–75% en rondt af. Het is geen econometrisch ECB-model en ook geen garantie.</p>
+            <div id="recessionBreakdown" class="model-breakdown"></div>
+            <div class="formula-box"><strong>Recessiekans</strong><code>5% + 70% × gemiddelde stressscore</code><small>De modelconfidence hangt af van het aantal geldige componenten, niet van de zekerheid dat de uitkomst klopt.</small></div>
+          </article>
 
           <div class="status-grid" id="statusGrid"></div>
 
@@ -264,9 +279,44 @@
             <article class="card"><div class="card-header"><div><span class="eyebrow">SAMENSTELLING</span><h3>Verdeling</h3></div></div><div id="portfolioDonut" class="portfolio-donut"></div><div id="portfolioLegend" class="portfolio-legend"></div></article>
           </div>
           <div class="portfolio-analysis spaced">
+            <article class="card holy-grail-card"><span class="eyebrow">DALIO’S HEILIGE GRAAL</span><h3>Diversificatie door correlaties</h3><div class="holy-grail-score"><strong id="holyGrailScore">—</strong><span>/100</span></div><div id="holyGrailDetails"></div><details class="dalio-explanation"><summary>Hoe worden correlatie en score berekend?</summary><div><p>Het model rekent eerst kapitaalgewichten om naar benaderde risicogewichten: gewicht × aangenomen volatiliteit. Daaruit volgt het effectieve aantal risicostromen. Vervolgens wordt de gemiddelde correlatie gewogen met de risicobijdragen van ieder paar.</p><div class="formula-box"><code>N_eff = 1 / Σ(risicoaandeel²)</code><code>ρ̄ = Σ(rᵢrⱼρᵢⱼ) / Σ(rᵢrⱼ)</code><code>relatieve volatiliteit = √((1+(N_eff−1)ρ̄)/N_eff)</code></div><p>De 0–100-score is een vertaling van de geschatte risicoreductie. Het is geen officiële Bridgewater-score. De correlaties zijn structurele modelaannames en kunnen in crises hoger worden.</p></div></details><div id="correlationMatrix" class="correlation-matrix"></div></article>
             <article class="card"><span class="eyebrow">MACROGEVOELIGHEID</span><h3>Waar reageert deze mix vooral op?</h3><div id="portfolioSensitivity" class="sensitivity-grid"></div></article>
             <article class="card"><span class="eyebrow">UITLEG</span><h3>Interpretatie</h3><div id="portfolioCommentary" class="portfolio-commentary"></div></article>
           </div>
+        </section>
+
+        <section class="page simulation-page" data-page-panel="valuation">
+          <div class="simulation-banner"><div><span class="lab-badge">LAB</span><span>LOS VAN HET MACRODASHBOARD</span></div><p>Waardering is geen timinginstrument en geen koop- of verkoopadvies.</p></div>
+          <div class="page-intro"><div><p class="page-question">Hoe duur zijn aandelen ten opzichte van winst en rente?</p><p>Vul marktdata in en vergelijk earnings yield, dividendrendement en de rentevergoeding.</p></div></div>
+          <div class="valuation-layout">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">INVOER</span><h3>Waarderingsaannames</h3></div><span class="source-tag manual">lokaal</span></div>
+              <div class="portfolio-inputs">
+                <label><span>Forward K/W groei-aandelen</span><input id="valGrowthPE" type="number" step="0.1" value="25"><em>x</em></label>
+                <label><span>Forward K/W value-aandelen</span><input id="valValuePE" type="number" step="0.1" value="13"><em>x</em></label>
+                <label><span>Forward K/W prijszettingsmacht</span><input id="valPricingPE" type="number" step="0.1" value="21"><em>x</em></label>
+                <label><span>Dividendrendement Europa</span><input id="valDividend" type="number" step="0.1" value="3.1"><em>%</em></label>
+                <label><span>10-jaars veilige rente</span><input id="valBondYield" type="number" step="0.1" value="2.8"><em>%</em></label>
+              </div>
+            </article>
+            <article class="card"><span class="eyebrow">UITKOMST</span><h3>Relatieve waardering</h3><div id="valuationResults" class="valuation-results"></div></article>
+          </div>
+        </section>
+
+        <section class="page simulation-page" data-page-panel="markten">
+          <div class="simulation-banner"><div><span class="lab-badge">BETA</span><span>MARKTEN VERGELIJKEN</span></div><p>Klein prototype buiten het dashboard; cijfers zijn lokale invoer en nog niet automatisch gekoppeld.</p></div>
+          <div class="page-intro"><div><p class="page-question">Hoe verschillen de eurozone en de Verenigde Staten?</p><p>Vergelijk groei, inflatie, beleidsrente, 10-jaarsrente, waardering en High Yield-spread op één plek.</p></div></div>
+          <div class="market-compare-grid">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">INVOER</span><h3>Eurozone</h3></div></div><div class="portfolio-inputs market-inputs" data-market="eu"><label><span>PMI composite</span><input id="euPmi" type="number" step="0.1" value="51.9"><em>punt</em></label><label><span>Kerninflatie</span><input id="euCore" type="number" step="0.1" value="2.4"><em>%</em></label><label><span>Beleidsrente</span><input id="euPolicy" type="number" step="0.05" value="2.0"><em>%</em></label><label><span>10-jaarsrente</span><input id="euYield" type="number" step="0.05" value="3.1"><em>%</em></label><label><span>Forward K/W</span><input id="euPe" type="number" step="0.1" value="15"><em>x</em></label><label><span>HY OAS</span><input id="euHy" type="number" step="0.01" value="2.50"><em>%</em></label></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">INVOER</span><h3>Verenigde Staten</h3></div></div><div class="portfolio-inputs market-inputs" data-market="us"><label><span>PMI composite</span><input id="usPmi" type="number" step="0.1" value="52.0"><em>punt</em></label><label><span>Kerninflatie</span><input id="usCore" type="number" step="0.1" value="2.8"><em>%</em></label><label><span>Beleidsrente</span><input id="usPolicy" type="number" step="0.05" value="4.0"><em>%</em></label><label><span>10-jaarsrente</span><input id="usYield" type="number" step="0.05" value="4.7"><em>%</em></label><label><span>Forward K/W</span><input id="usPe" type="number" step="0.1" value="22"><em>x</em></label><label><span>HY OAS</span><input id="usHy" type="number" step="0.01" value="2.79"><em>%</em></label></div></article>
+          </div>
+          <article class="card spaced"><div class="card-header"><div><span class="eyebrow">SNELLE VERGELIJKING</span><h3>Relatieve positie</h3></div><span class="source-tag manual">prototype</span></div><div id="marketComparison" class="market-comparison"></div></article>
+        </section>
+
+        <section class="page" data-page-panel="regimes">
+          <div class="simulation-banner"><div><span class="lab-badge">HISTORIE</span><span>VAN GROTE DEPRESSIE TOT NU</span></div><p>Regimes zijn analytische indelingen achteraf; grenzen zijn benaderingen.</p></div>
+          <div class="page-intro"><div><p class="page-question">Hoe veranderden groei, inflatie en beleid door de tijd?</p><p>Klik op een periode om de economische combinatie en typische marktwerking te bekijken.</p></div></div>
+          <div id="regimeTimeline" class="regime-timeline"></div>
+          <article class="card spaced" id="regimeDetail"><span class="eyebrow">KIES EEN PERIODE</span><h3>Historisch regime</h3><p>De tijdlijn loopt vanaf de Grote Depressie.</p></article>
         </section>
 
         <section class="page" data-page-panel="databeheer">

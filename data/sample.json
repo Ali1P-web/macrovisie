@@ -1,10 +1,10 @@
 {
   "meta": {
     "name": "MacroVisie",
-    "version": "9.3.0",
+    "version": "10.1.0",
     "updated_at": "2026-08-01",
     "mode": "sample",
-    "methodology": "v9.3: OIS 3/6/12 maanden, Euro High Yield OAS en inflatiegelinkte obligaties in Portfolio LAB",
+    "methodology": "v10.1: transparant recessiemodel, Dalio-correlatie-uitleg, gecontroleerde Euro HY OAS en marktvergelijking-prototype",
     "successful_updates": [
       "consensusCoreCpi",
       "consensusEcbBp",
@@ -5769,7 +5769,7 @@
       "label": "Euro High Yield OAS",
       "unit": "%",
       "category": "Stress",
-      "source": "handmatig",
+      "source": "live",
       "values": [
         {
           "date": "2019-01-01",
@@ -6136,7 +6136,7 @@
           "value": 2.5
         }
       ],
-      "source_name": "data/manual.csv",
+      "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
       "freshness": "actueel",
       "data_quality": true
     },

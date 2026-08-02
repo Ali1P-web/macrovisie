@@ -1,4 +1,4 @@
-# MacroVisie v9.3.0
+# MacroVisie v10.1.0
 
 Nederlandstalig macro-dashboard voor de eurozone, gebouwd als statische GitHub Pages-app.
 
@@ -52,3 +52,7 @@ Vervang de bestanden in je repository door de inhoud van deze map. Controleer da
 - 5Y5Y-inflatieswap: 2.10% als afgeronde handmatige marktinschatting; controleer deze bij een professionele marktbron voordat je hem als exact dagcijfer gebruikt.
 - Consensus kerninflatie: 2.4% voor 2026 uit de ECB Survey of Professional Forecasters van juli 2026.
 - ECB-verrassing: 0 bp voor de vergadering van 23 juli 2026, omdat de depositorente conform verwachting ongewijzigd bleef.
+
+
+## v10.1
+Recessiemodel, confidence badges, Valuation LAB, uitgebreide Scenario- en Portfolio LAB, Dalio-correlatiescore, historische regimes vanaf 1929 en herstelde Bundesbank-SDMX-query.

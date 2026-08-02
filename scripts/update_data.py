@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""MacroVisie v9.3 updater.
+"""MacroVisie v10.1 updater.
 
 Bronnen:
 - ECB Data Portal: beleidsrente, eurozone-curves, M3, Eurosysteembalans.
 - Eurostat Statistics API: HICP, kern-HICP, werkloosheid, BBP en lonen.
 - Deutsche Bundesbank SDMX API: actuele Duitse federale effecten (Schatz/Bobl/Bund).
 
-Reeksen zonder vrij herpubliceerbare, stabiele API (PMI, OIS, credit spreads en
-5y5y-inflatieswap) blijven expliciet handmatig. De webapp bevat hiervoor een
+PMI, OIS en 5y5y-inflatieswap blijven expliciet handmatig. De Euro HY OAS wordt
+dagelijks gecontroleerd via FRED (ICE BofA-reeks BAMLHE00EHYIOAS). De webapp bevat hiervoor een
 invulhulp. Bij een bronfout blijft de laatst geldige reeks behouden.
 """
 from __future__ import annotations
@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "dashboard.json"
 SAMPLE = ROOT / "data" / "sample.json"
 MANUAL = ROOT / "data" / "manual.csv"
-USER_AGENT = "MacroVisie/9.2 (educational dashboard; GitHub Pages)"
+USER_AGENT = "MacroVisie/10.1 (educational dashboard; GitHub Pages)"
 
 ECB = {
     "depositRate": ("FM", "D.U2.EUR.4F.KR.DFR.LEV"),
@@ -104,6 +104,24 @@ def get(url: str, accept: str = "*/*") -> bytes:
         return response.read()
 
 
+
+def fetch_fred_hy_oas() -> list[dict]:
+    """ICE BofA Euro High Yield OAS via de openbare FRED CSV-export."""
+    raw = get("https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLHE00EHYIOAS", "text/csv").decode("utf-8-sig")
+    rows = csv.DictReader(io.StringIO(raw))
+    values = []
+    for row in rows:
+        obs = row.get("BAMLHE00EHYIOAS")
+        if not obs or obs == ".":
+            continue
+        try:
+            values.append({"date": monthify((row.get("observation_date") or row.get("DATE"))), "value": float(obs)})
+        except (ValueError, KeyError):
+            continue
+    # Dagdata worden voor het compacte dashboard per maand teruggebracht tot de laatste close.
+    monthly = {v["date"]: v["value"] for v in values}
+    return [{"date": d, "value": monthly[d]} for d in sorted(monthly)]
+
 def monthify(period: str) -> str:
     p = str(period).strip()
     if "Q" in p and len(p) >= 6:
@@ -145,10 +163,15 @@ def fetch_ecb(flow: str, key: str) -> list[dict]:
 
 
 def fetch_bundesbank(series_key: str) -> list[dict]:
-    params = urllib.parse.urlencode({"format":"csv", "startPeriod":"2000-01-01", "detail":"dataonly"})
+    params = urllib.parse.urlencode({"format":"sdmx_csv", "startPeriod":"2000-01-01", "detail":"dataonly"})
     url = f"https://api.statistiken.bundesbank.de/rest/data/BBSSY/{series_key.split('.', 1)[1]}?{params}"
     text = get(url, "text/csv").decode("utf-8-sig")
-    rows = csv.DictReader(io.StringIO(text))
+    sample = text[:4096]
+    try:
+        dialect = csv.Sniffer().sniff(sample, delimiters=",;")
+    except csv.Error:
+        dialect = csv.excel
+    rows = csv.DictReader(io.StringIO(text), dialect=dialect)
     output = []
     for row in rows:
         period = row.get("TIME_PERIOD") or row.get("TIME PERIOD")
@@ -279,7 +302,7 @@ def merge_manual(data: dict) -> list[str]:
     rows = list(csv.DictReader(MANUAL.open(encoding="utf-8-sig")))
     keys = [
         "pmiManufacturing", "pmiServices", "pmiComposite", "oisCuts3m", "oisCuts6m", "oisCuts12m",
-        "creditSpread", "marketInflation5y5y", "consensusPmi",
+        "marketInflation5y5y", "consensusPmi",
         "consensusCoreCpi", "consensusEcbBp"
     ]
     updated = []
@@ -392,19 +415,28 @@ def main() -> int:
                 mark_unavailable(data, key, f"Eurostat-update mislukt: {last_error}")
 
     success.extend(merge_manual(data))
+    try:
+        values = fetch_fred_hy_oas()
+        if not values:
+            raise RuntimeError("lege reeks")
+        set_values(data, "creditSpread", values, "live", "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS")
+        ensure_meta(data, "creditSpread")["data_quality"] = True
+        success.append("creditSpread")
+    except Exception as exc:
+        errors.append(f"FRED creditSpread: {exc}")
     calculate(data)
     errors.extend(validate(data))
     data.setdefault("meta", {}).update({
         "name": "MacroVisie",
-        "version": "9.2.0",
+        "version": "10.1.0",
         "updated_at": date.today().isoformat(),
         "mode": "web",
         "successful_updates": sorted(set(success)),
         "warnings": errors,
-        "methodology": "v9.3: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
+        "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     })
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"MacroVisie v9: {len(set(success))} reeksen bijgewerkt; {len(errors)} waarschuwingen")
+    print(f"MacroVisie v10.1: {len(set(success))} reeksen bijgewerkt; {len(errors)} waarschuwingen")
     for error in errors:
         print("-", error)
     return 0
