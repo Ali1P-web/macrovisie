@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07111f">
-  <meta name="description" content="MacroVisie v10.1.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
+  <meta name="description" content="MacroVisie v10.2.0 — een helder, Nederlandstalig macro-dashboard voor de eurozone.">
   <meta name="color-scheme" content="dark light">
-  <title>MacroVisie v10.1.0</title>
+  <title>MacroVisie v10.2.0</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
@@ -19,7 +19,7 @@
       <div class="sidebar-head">
         <a class="brand" href="#dashboard" aria-label="MacroVisie dashboard">
           <span class="brand-mark"><img src="assets/logo.svg" alt="" width="30" height="30"></span>
-          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v10.1</small></span>
+          <span class="brand-copy"><strong>MacroVisie</strong><small>Eurozone · v10.2</small></span>
         </a>
         <button class="icon-button mobile-only" id="sidebarClose" aria-label="Menu sluiten">×</button>
       </div>
@@ -286,19 +286,16 @@
         </section>
 
         <section class="page simulation-page" data-page-panel="valuation">
-          <div class="simulation-banner"><div><span class="lab-badge">LAB</span><span>LOS VAN HET MACRODASHBOARD</span></div><p>Waardering is geen timinginstrument en geen koop- of verkoopadvies.</p></div>
-          <div class="page-intro"><div><p class="page-question">Hoe duur zijn aandelen ten opzichte van winst en rente?</p><p>Vul marktdata in en vergelijk earnings yield, dividendrendement en de rentevergoeding.</p></div></div>
-          <div class="valuation-layout">
-            <article class="card"><div class="card-header"><div><span class="eyebrow">INVOER</span><h3>Waarderingsaannames</h3></div><span class="source-tag manual">lokaal</span></div>
-              <div class="portfolio-inputs">
-                <label><span>Forward K/W groei-aandelen</span><input id="valGrowthPE" type="number" step="0.1" value="25"><em>x</em></label>
-                <label><span>Forward K/W value-aandelen</span><input id="valValuePE" type="number" step="0.1" value="13"><em>x</em></label>
-                <label><span>Forward K/W prijszettingsmacht</span><input id="valPricingPE" type="number" step="0.1" value="21"><em>x</em></label>
-                <label><span>Dividendrendement Europa</span><input id="valDividend" type="number" step="0.1" value="3.1"><em>%</em></label>
-                <label><span>10-jaars veilige rente</span><input id="valBondYield" type="number" step="0.1" value="2.8"><em>%</em></label>
-              </div>
-            </article>
-            <article class="card"><span class="eyebrow">UITKOMST</span><h3>Relatieve waardering</h3><div id="valuationResults" class="valuation-results"></div></article>
+          <div class="simulation-banner"><div><span class="lab-badge">LAB</span><span>ACTUELE WAARDERING</span></div><p>Laatste gepubliceerde fundamentele indexdata. Waardering is geen timinginstrument en geen koop- of verkoopadvies.</p></div>
+          <div class="page-intro"><div><p class="page-question">Hoe duur zijn Europese aandelen nu?</p><p>Vergelijk actuele koers-winstverhoudingen, earnings yields en dividendrendementen. Peildatum MSCI: 30 juni 2026.</p></div></div>
+          <div class="valuation-summary" id="valuationSummary"></div>
+          <div class="valuation-table-card card">
+            <div class="card-header"><div><span class="eyebrow">ACTUELE INDEXDATA</span><h3>Groei, value en prijszettingsmacht-proxy</h3><p class="card-note">Prijszettingsmacht heeft geen universele gratis index. Daarom gebruiken we MSCI EMU Universal als transparante kwaliteits-/robuustheidsproxy.</p></div><span class="source-tag live">MSCI · 30 JUN 2026</span></div>
+            <div class="table-wrap"><table class="valuation-table"><thead><tr><th>Reeks</th><th>Trailing K/W <button class="info-button mini" data-info="trailingPE" aria-label="Uitleg trailing koers-winstverhouding">i</button></th><th>Forward K/W <button class="info-button mini" data-info="forwardPE" aria-label="Uitleg forward koers-winstverhouding">i</button></th><th>Earnings yield <button class="info-button mini" data-info="earningsYield" aria-label="Uitleg earnings yield">i</button></th><th>Dividend <button class="info-button mini" data-info="dividendYield" aria-label="Uitleg dividendrendement">i</button></th><th>Premie boven 10Y <button class="info-button mini" data-info="earningsSpread" aria-label="Uitleg premie boven de rente">i</button></th></tr></thead><tbody id="valuationTableBody"></tbody></table></div>
+          </div>
+          <div class="valuation-layout spaced">
+            <article class="card"><div class="card-header"><div><span class="eyebrow">RELATIEVE WAARDERING</span><h3>Wat zeggen de cijfers?</h3></div><button class="info-button" data-info="valuationReading" aria-label="Uitleg waardering lezen">i</button></div><div id="valuationResults" class="valuation-results"></div></article>
+            <article class="card"><div class="card-header"><div><span class="eyebrow">BRON & KWALITEIT</span><h3>Hoe actueel is dit?</h3></div><button class="info-button" data-info="valuationFreshness" aria-label="Uitleg actualiteit waarderingsdata">i</button></div><div class="valuation-source-note"><div><strong>MSCI-indexdata</strong><span>Peildatum 30 juni 2026</span><em class="confidence-high">Confidence: hoog</em></div><div><strong>10Y-rente</strong><span id="valuationBondSource">Laatste geldige dashboardwaarde</span><em class="confidence-medium">Confidence: redelijk</em></div><p>Fundamentele waarderingsdata worden doorgaans maandelijks gepubliceerd en zijn daarom niet intraday. Bij een nieuwe MSCI-publicatie moeten deze waarden worden bijgewerkt.</p></div></article>
           </div>
         </section>
 
