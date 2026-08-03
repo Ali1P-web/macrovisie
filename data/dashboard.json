@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-08-02",
+    "updated_at": "2026-08-03",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -12729,7 +12729,7 @@
         },
         {
           "date": "2026-07-01",
-          "value": 0.659054
+          "value": 0.65905
         }
       ],
       "source_name": "ECB Data Portal",
@@ -13788,7 +13788,7 @@
         },
         {
           "date": "2026-07-01",
-          "value": 2.959144
+          "value": 2.959148
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
@@ -26414,7 +26414,7 @@
         },
         {
           "date": "2026-07-01",
-          "value": 2.959144
+          "value": 2.959148
         }
       ],
       "source": "berekend",
