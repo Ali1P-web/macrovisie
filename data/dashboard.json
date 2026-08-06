@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-08-05",
+    "updated_at": "2026-08-06",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -7197,7 +7197,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.79236
+          "value": 2.736657
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8264,7 +8264,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.076516
+          "value": 3.024112
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9331,7 +9331,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.584459
+          "value": 3.536361
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10398,7 +10398,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 4.214438
+          "value": 4.207109
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11465,7 +11465,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.792099
+          "value": 0.799704
         }
       ],
       "threshold": 0,
@@ -12749,7 +12749,7 @@
         },
         {
           "date": "2026-07-01",
-          "value": 0.65895
+          "value": 0.65903
         }
       ],
       "source_name": "ECB Data Portal",
@@ -13808,7 +13808,7 @@
         },
         {
           "date": "2026-07-01",
-          "value": 2.980763
+          "value": 2.980683
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
@@ -17070,7 +17070,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.702053
+          "value": 2.662325
         }
       ],
       "source": "live",
@@ -18136,7 +18136,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.84039
+          "value": 2.783068
         }
       ],
       "source": "live",
@@ -19202,7 +19202,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.185499
+          "value": 3.146274
         }
       ],
       "source": "live",
@@ -20268,7 +20268,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.628214
+          "value": 3.594401
         }
       ],
       "source": "live",
@@ -20886,7 +20886,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.78
+          "value": 2.72
         }
       ],
       "source": "live",
@@ -21856,7 +21856,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.9
+          "value": 2.83
         }
       ],
       "source": "live",
@@ -23062,7 +23062,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.16
+          "value": 3.1
         }
       ],
       "source": "live",
@@ -24352,7 +24352,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.66
+          "value": 3.61
         }
       ],
       "source": "live",
@@ -25416,7 +25416,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.483446
+          "value": 0.483949
         }
       ],
       "source": "berekend",
@@ -26474,7 +26474,7 @@
         },
         {
           "date": "2026-07-01",
-          "value": 2.980763
+          "value": 2.980683
         }
       ],
       "source": "berekend",
