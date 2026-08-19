@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-08-18",
+    "updated_at": "2026-08-19",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -7197,7 +7197,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.808511
+          "value": 2.819839
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8264,7 +8264,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.111935
+          "value": 3.133715
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9331,7 +9331,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.625041
+          "value": 3.656668
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10398,7 +10398,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 4.297847
+          "value": 4.321292
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11465,7 +11465,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.81653
+          "value": 0.836829
         }
       ],
       "threshold": 0,
@@ -12733,7 +12733,7 @@
         },
         {
           "date": "2026-03-01",
-          "value": 0.78572
+          "value": 0.78573
         },
         {
           "date": "2026-04-01",
@@ -13792,7 +13792,7 @@
         },
         {
           "date": "2026-03-01",
-          "value": 2.724703
+          "value": 2.724693
         },
         {
           "date": "2026-04-01",
@@ -15742,7 +15742,7 @@
         },
         {
           "date": "2026-W3-01",
-          "value": 5923.023
+          "value": 5927.307
         }
       ],
       "source_name": "ECB Data Portal"
@@ -15899,7 +15899,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.54
+          "value": 2.53
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -17070,7 +17070,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.727649
+          "value": 2.736042
         }
       ],
       "source": "live",
@@ -18136,7 +18136,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.862656
+          "value": 2.880912
         }
       ],
       "source": "live",
@@ -19202,7 +19202,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.212562
+          "value": 3.242318
         }
       ],
       "source": "live",
@@ -20268,7 +20268,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.684021
+          "value": 3.706262
         }
       ],
       "source": "live",
@@ -20886,7 +20886,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.8
+          "value": 2.83
         }
       ],
       "source": "live",
@@ -21856,7 +21856,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.93
+          "value": 2.97
         }
       ],
       "source": "live",
@@ -23062,7 +23062,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.2
+          "value": 3.25
         }
       ],
       "source": "live",
@@ -24352,7 +24352,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.73
+          "value": 3.77
         }
       ],
       "source": "live",
@@ -25416,7 +25416,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.484913
+          "value": 0.506276
         }
       ],
       "source": "berekend",
@@ -26458,7 +26458,7 @@
         },
         {
           "date": "2026-03-01",
-          "value": 2.724703
+          "value": 2.724693
         },
         {
           "date": "2026-04-01",
