@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-08-26",
+    "updated_at": "2026-08-27",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -7197,7 +7197,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.895114
+          "value": 2.853082
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8264,7 +8264,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.198187
+          "value": 3.155242
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9331,7 +9331,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.716166
+          "value": 3.671649
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10398,7 +10398,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 4.330195
+          "value": 4.293896
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11465,7 +11465,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.821052
+          "value": 0.818567
         }
       ],
       "threshold": 0,
@@ -15059,43 +15059,47 @@
         },
         {
           "date": "2025-10-01",
-          "value": 2.825088
+          "value": 2.824755
         },
         {
           "date": "2025-11-01",
-          "value": 2.935492
+          "value": 2.941175
         },
         {
           "date": "2025-12-01",
-          "value": 2.845667
+          "value": 2.840934
         },
         {
           "date": "2026-01-01",
-          "value": 3.199797
+          "value": 3.198848
         },
         {
           "date": "2026-02-01",
-          "value": 2.971538
+          "value": 2.971393
         },
         {
           "date": "2026-03-01",
-          "value": 3.307622
+          "value": 3.302269
         },
         {
           "date": "2026-04-01",
-          "value": 2.794382
+          "value": 2.788629
         },
         {
           "date": "2026-05-01",
-          "value": 3.077907
+          "value": 3.077356
         },
         {
           "date": "2026-06-01",
-          "value": 3.370134
+          "value": 3.396863
+        },
+        {
+          "date": "2026-07-01",
+          "value": 3.42604
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "ecbBalance": {
@@ -15899,7 +15903,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.54
+          "value": 2.58
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -17070,7 +17074,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.796354
+          "value": 2.755376
         }
       ],
       "source": "live",
@@ -18136,7 +18140,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.937997
+          "value": 2.899789
         }
       ],
       "source": "live",
@@ -19202,7 +19206,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.280396
+          "value": 3.248505
         }
       ],
       "source": "live",
@@ -20268,7 +20272,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.726456
+          "value": 3.698825
         }
       ],
       "source": "live",
@@ -20886,7 +20890,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.86
+          "value": 2.85
         }
       ],
       "source": "live",
@@ -21856,7 +21860,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.98
+          "value": 2.97
         }
       ],
       "source": "live",
@@ -23062,7 +23066,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.24
+          "value": 3.25
         }
       ],
       "source": "live",
@@ -25416,7 +25420,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.484042
+          "value": 0.493129
         }
       ],
       "source": "berekend",
