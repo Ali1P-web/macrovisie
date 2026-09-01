@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-08-31",
+    "updated_at": "2026-09-01",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -418,7 +418,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "pmiServices": {
       "label": "PMI Services",
@@ -795,7 +795,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "pmiComposite": {
       "label": "PMI Composite",
@@ -1172,7 +1172,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "gdp": {
       "label": "BBP-groei",
@@ -1607,7 +1607,7 @@
       ],
       "source_name": "Eurostat · namq_10_gdp · EA20 · ",
       "data_quality": true,
-      "age_months": 4,
+      "age_months": 5,
       "freshness": "verouderd"
     },
     "unemployment": {
@@ -1981,7 +1981,7 @@
           "value": 6.15
         }
       ],
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     },
     "wages": {
@@ -2355,7 +2355,7 @@
           "value": 4.71
         }
       ],
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     },
     "cpi": {
@@ -3595,6 +3595,10 @@
         {
           "date": "2026-07-01",
           "value": 3.0
+        },
+        {
+          "date": "2026-08-01",
+          "value": 3.2
         }
       ],
       "source_name": "Eurostat · prc_hicp_minr · EA21 · TOTAL",
@@ -4839,6 +4843,10 @@
         {
           "date": "2026-07-01",
           "value": 2.5
+        },
+        {
+          "date": "2026-08-01",
+          "value": 2.4
         }
       ],
       "source_name": "Eurostat · prc_hicp_minr · EA21 · TOT_X_NRG_FOOD",
@@ -6131,6 +6139,10 @@
         {
           "date": "2026-08-01",
           "value": 2.25
+        },
+        {
+          "date": "2026-09-01",
+          "value": 2.25
         }
       ],
       "source_name": "ECB Data Portal",
@@ -7197,11 +7209,11 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.891599
+          "value": 2.949447
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yield5y": {
@@ -8264,11 +8276,11 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.19485
+          "value": 3.262434
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yield10y": {
@@ -9331,11 +9343,11 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.70209
+          "value": 3.769854
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yield30y": {
@@ -10398,11 +10410,11 @@
         },
         {
           "date": "2026-08-01",
-          "value": 4.327126
+          "value": 4.365396
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yieldCurve": {
@@ -11465,12 +11477,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.810491
+          "value": 0.820407
         }
       ],
       "threshold": 0,
       "source_name": "10Y min 2Y",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "realYield": {
@@ -12753,7 +12765,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     },
     "breakeven": {
@@ -13812,7 +13824,7 @@
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     },
     "m3": {
@@ -15099,7 +15111,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     },
     "ecbBalance": {
@@ -15758,10 +15770,6 @@
       "source": "live",
       "values": [
         {
-          "date": "2023-08-01",
-          "value": 4.5
-        },
-        {
           "date": "2023-09-01",
           "value": 4.45
         },
@@ -15903,13 +15911,13 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.56
+          "value": 2.55
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 0
+      "age_months": 1
     },
     "oisCuts3m": {
       "values": [
@@ -15924,7 +15932,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "oisCuts6m": {
       "values": [
@@ -15939,7 +15947,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "oisCuts12m": {
       "values": [
@@ -15954,7 +15962,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "marketInflation5y5y": {
       "values": [
@@ -15969,7 +15977,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "consensusPmi": {
       "values": [
@@ -15984,7 +15992,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "consensusCoreCpi": {
       "values": [
@@ -15999,7 +16007,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "consensusEcbBp": {
       "values": [
@@ -16014,7 +16022,7 @@
       "source_name": "data/manual.csv",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "aaaYield2y": {
       "label": "AAA-eurozone spotrate 2 jaar",
@@ -17074,12 +17082,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.805378
+          "value": 2.856018
         }
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "aaaYield5y": {
@@ -18140,12 +18148,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.94317
+          "value": 3.007748
         }
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "aaaYield10y": {
@@ -19206,12 +19214,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.27892
+          "value": 3.339594
         }
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "aaaYield30y": {
@@ -20272,12 +20280,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.728013
+          "value": 3.775557
         }
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "bund2y": {
@@ -20890,12 +20898,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.86
+          "value": 2.92
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "bund5y": {
@@ -21860,12 +21868,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.99
+          "value": 3.05
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "bund10y": {
@@ -23066,12 +23074,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.27
+          "value": 3.31
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "bund30y": {
@@ -24356,12 +24364,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.77
+          "value": 3.79
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "aaaYieldCurve": {
@@ -25420,12 +25428,12 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.473542
+          "value": 0.483576
         }
       ],
       "source": "berekend",
       "source_name": "AAA 10Y min AAA 2Y",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "inflationProxy": {
@@ -26483,7 +26491,7 @@
       ],
       "source": "berekend",
       "source_name": "ECB nominale benchmark min ECB reële benchmark",
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     }
   }
