@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-09-01",
+    "updated_at": "2026-09-02",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -12762,10 +12762,14 @@
         {
           "date": "2026-07-01",
           "value": 0.65903
+        },
+        {
+          "date": "2026-08-01",
+          "value": 0.36475
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "breakeven": {
@@ -13821,10 +13825,14 @@
         {
           "date": "2026-07-01",
           "value": 2.980683
+        },
+        {
+          "date": "2026-08-01",
+          "value": 3.405104
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "m3": {
@@ -15758,7 +15766,7 @@
         },
         {
           "date": "2026-W3-01",
-          "value": 5913.041
+          "value": 5915.343
         }
       ],
       "source_name": "ECB Data Portal"
@@ -15911,7 +15919,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 2.55
+          "value": 2.59
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -20899,11 +20907,15 @@
         {
           "date": "2026-08-01",
           "value": 2.92
+        },
+        {
+          "date": "2026-09-01",
+          "value": 2.97
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "bund5y": {
@@ -21869,11 +21881,15 @@
         {
           "date": "2026-08-01",
           "value": 3.05
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.09
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "bund10y": {
@@ -23075,11 +23091,15 @@
         {
           "date": "2026-08-01",
           "value": 3.31
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.36
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "bund30y": {
@@ -24365,11 +24385,15 @@
         {
           "date": "2026-08-01",
           "value": 3.79
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.84
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "aaaYieldCurve": {
@@ -26487,11 +26511,15 @@
         {
           "date": "2026-07-01",
           "value": 2.980683
+        },
+        {
+          "date": "2026-08-01",
+          "value": 3.405104
         }
       ],
       "source": "berekend",
       "source_name": "ECB nominale benchmark min ECB reële benchmark",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     }
   }
