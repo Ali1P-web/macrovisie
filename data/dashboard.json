@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-09-02",
+    "updated_at": "2026-09-03",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -7210,10 +7210,14 @@
         {
           "date": "2026-08-01",
           "value": 2.949447
+        },
+        {
+          "date": "2026-09-01",
+          "value": 2.967435
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "yield5y": {
@@ -8277,10 +8281,14 @@
         {
           "date": "2026-08-01",
           "value": 3.262434
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.281035
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "yield10y": {
@@ -9344,10 +9352,14 @@
         {
           "date": "2026-08-01",
           "value": 3.769854
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.786978
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "yield30y": {
@@ -10411,10 +10423,14 @@
         {
           "date": "2026-08-01",
           "value": 4.365396
+        },
+        {
+          "date": "2026-09-01",
+          "value": 4.369942
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "yieldCurve": {
@@ -11478,11 +11494,15 @@
         {
           "date": "2026-08-01",
           "value": 0.820407
+        },
+        {
+          "date": "2026-09-01",
+          "value": 0.819543
         }
       ],
       "threshold": 0,
       "source_name": "10Y min 2Y",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "realYield": {
@@ -12765,7 +12785,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 0.36475
+          "value": 0.36476
         }
       ],
       "source_name": "ECB Data Portal",
@@ -13828,7 +13848,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.405104
+          "value": 3.405094
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
@@ -15920,12 +15940,16 @@
         {
           "date": "2026-08-01",
           "value": 2.59
+        },
+        {
+          "date": "2026-09-01",
+          "value": 2.6
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 0
     },
     "oisCuts3m": {
       "values": [
@@ -17091,11 +17115,15 @@
         {
           "date": "2026-08-01",
           "value": 2.856018
+        },
+        {
+          "date": "2026-09-01",
+          "value": 2.876001
         }
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "aaaYield5y": {
@@ -18157,11 +18185,15 @@
         {
           "date": "2026-08-01",
           "value": 3.007748
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.026202
         }
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "aaaYield10y": {
@@ -19223,11 +19255,15 @@
         {
           "date": "2026-08-01",
           "value": 3.339594
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.355152
         }
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "aaaYield30y": {
@@ -20289,11 +20325,15 @@
         {
           "date": "2026-08-01",
           "value": 3.775557
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.786652
         }
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "bund2y": {
@@ -20910,7 +20950,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 2.97
+          "value": 3.01
         }
       ],
       "source": "live",
@@ -21884,7 +21924,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.09
+          "value": 3.13
         }
       ],
       "source": "live",
@@ -23094,7 +23134,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.36
+          "value": 3.39
         }
       ],
       "source": "live",
@@ -24388,7 +24428,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.84
+          "value": 3.85
         }
       ],
       "source": "live",
@@ -25453,11 +25493,15 @@
         {
           "date": "2026-08-01",
           "value": 0.483576
+        },
+        {
+          "date": "2026-09-01",
+          "value": 0.479151
         }
       ],
       "source": "berekend",
       "source_name": "AAA 10Y min AAA 2Y",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "inflationProxy": {
@@ -26514,7 +26558,7 @@
         },
         {
           "date": "2026-08-01",
-          "value": 3.405104
+          "value": 3.405094
         }
       ],
       "source": "berekend",
