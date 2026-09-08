@@ -2,13 +2,11 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-09-07",
+    "updated_at": "2026-09-08",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
-      "aaaYield10y",
       "aaaYield2y",
-      "aaaYield30y",
       "aaaYield5y",
       "bund10y",
       "bund2y",
@@ -31,13 +29,15 @@
       "pmiComposite",
       "pmiManufacturing",
       "pmiServices",
-      "realYield",
       "yield10y",
-      "yield2y",
-      "yield30y",
       "yield5y"
     ],
     "warnings": [
+      "ECB yield2y: HTTP Error 504: Gateway Time-out",
+      "ECB yield30y: HTTP Error 504: Gateway Time-out",
+      "ECB aaaYield10y: HTTP Error 504: Gateway Time-out",
+      "ECB aaaYield30y: HTTP Error 504: Gateway Time-out",
+      "ECB realYield: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -23134,7 +23134,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.34
+          "value": 3.35
         }
       ],
       "source": "live",
@@ -24428,7 +24428,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.82
+          "value": 3.83
         }
       ],
       "source": "live",
