@@ -2,11 +2,13 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-09-08",
+    "updated_at": "2026-09-09",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
+      "aaaYield10y",
       "aaaYield2y",
+      "aaaYield30y",
       "aaaYield5y",
       "bund10y",
       "bund2y",
@@ -29,15 +31,13 @@
       "pmiComposite",
       "pmiManufacturing",
       "pmiServices",
+      "realYield",
       "yield10y",
+      "yield2y",
+      "yield30y",
       "yield5y"
     ],
     "warnings": [
-      "ECB yield2y: HTTP Error 504: Gateway Time-out",
-      "ECB yield30y: HTTP Error 504: Gateway Time-out",
-      "ECB aaaYield10y: HTTP Error 504: Gateway Time-out",
-      "ECB aaaYield30y: HTTP Error 504: Gateway Time-out",
-      "ECB realYield: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -7213,7 +7213,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 2.956009
+          "value": 3.002529
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8284,7 +8284,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.265591
+          "value": 3.308128
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9355,7 +9355,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.767595
+          "value": 3.812444
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10426,7 +10426,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 4.354738
+          "value": 4.393559
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11497,7 +11497,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 0.811586
+          "value": 0.809915
         }
       ],
       "threshold": 0,
@@ -15786,7 +15786,7 @@
         },
         {
           "date": "2026-W3-01",
-          "value": 5915.343
+          "value": 5912.178
         }
       ],
       "source_name": "ECB Data Portal"
@@ -15943,7 +15943,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 2.65
+          "value": 2.63
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -17118,7 +17118,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 2.876637
+          "value": 2.913307
         }
       ],
       "source": "live",
@@ -18188,7 +18188,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.01434
+          "value": 3.056176
         }
       ],
       "source": "live",
@@ -19258,7 +19258,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.346497
+          "value": 3.389493
         }
       ],
       "source": "live",
@@ -20328,7 +20328,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.75464
+          "value": 3.784213
         }
       ],
       "source": "live",
@@ -20950,7 +20950,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 2.96
+          "value": 3.01
         }
       ],
       "source": "live",
@@ -21924,7 +21924,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.09
+          "value": 3.14
         }
       ],
       "source": "live",
@@ -23134,7 +23134,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.35
+          "value": 3.39
         }
       ],
       "source": "live",
@@ -24428,7 +24428,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.83
+          "value": 3.85
         }
       ],
       "source": "live",
@@ -25496,7 +25496,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 0.46986
+          "value": 0.476186
         }
       ],
       "source": "berekend",
