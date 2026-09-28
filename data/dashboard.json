@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-09-27",
+    "updated_at": "2026-09-28",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -7213,7 +7213,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.355787
+          "value": 3.370561
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8284,7 +8284,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.647722
+          "value": 3.672631
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9355,7 +9355,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 4.064633
+          "value": 4.113129
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10426,7 +10426,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 4.37478
+          "value": 4.419453
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11497,7 +11497,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 0.708846
+          "value": 0.742568
         }
       ],
       "threshold": 0,
@@ -17122,7 +17122,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.2294
+          "value": 3.251067
         }
       ],
       "source": "live",
@@ -18192,7 +18192,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.343483
+          "value": 3.377693
         }
       ],
       "source": "live",
@@ -19262,7 +19262,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.566168
+          "value": 3.614701
         }
       ],
       "source": "live",
@@ -20332,7 +20332,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.744247
+          "value": 3.787461
         }
       ],
       "source": "live",
@@ -20954,7 +20954,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.29
+          "value": 3.33
         }
       ],
       "source": "live",
@@ -21928,7 +21928,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.4
+          "value": 3.46
         }
       ],
       "source": "live",
@@ -23138,7 +23138,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.58
+          "value": 3.64
         }
       ],
       "source": "live",
@@ -24432,7 +24432,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.88
+          "value": 3.94
         }
       ],
       "source": "live",
@@ -25500,7 +25500,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 0.336768
+          "value": 0.363634
         }
       ],
       "source": "berekend",
