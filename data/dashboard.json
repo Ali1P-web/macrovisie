@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-10-02",
+    "updated_at": "2026-10-03",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -34,10 +34,10 @@
       "realYield",
       "yield10y",
       "yield2y",
-      "yield30y",
-      "yield5y"
+      "yield30y"
     ],
     "warnings": [
+      "ECB yield5y: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -12818,10 +12818,14 @@
         {
           "date": "2026-08-01",
           "value": 0.46472
+        },
+        {
+          "date": "2026-09-01",
+          "value": 0.23067
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "breakeven": {
@@ -13881,10 +13885,14 @@
         {
           "date": "2026-08-01",
           "value": 3.305134
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.900144
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "m3": {
@@ -15976,12 +15984,16 @@
         {
           "date": "2026-09-01",
           "value": 3.0
+        },
+        {
+          "date": "2026-10-01",
+          "value": 3.17
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 0
     },
     "oisCuts3m": {
       "values": [
@@ -26627,11 +26639,15 @@
         {
           "date": "2026-08-01",
           "value": 3.305134
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.900144
         }
       ],
       "source": "berekend",
       "source_name": "ECB nominale benchmark min ECB reële benchmark",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     }
   }
