@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-10-03",
+    "updated_at": "2026-10-04",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -21,7 +21,6 @@
       "cpi",
       "creditSpread",
       "depositRate",
-      "ecbBalance",
       "gdp",
       "m3",
       "marketInflation5y5y",
@@ -34,10 +33,11 @@
       "realYield",
       "yield10y",
       "yield2y",
-      "yield30y"
+      "yield30y",
+      "yield5y"
     ],
     "warnings": [
-      "ECB yield5y: HTTP Error 504: Gateway Time-out",
+      "ECB ecbBalance: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
