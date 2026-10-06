@@ -2,11 +2,13 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-10-05",
+    "updated_at": "2026-10-06",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
       "aaaYield10y",
+      "aaaYield2y",
+      "aaaYield30y",
       "aaaYield5y",
       "bund10y",
       "bund2y",
@@ -19,7 +21,9 @@
       "cpi",
       "creditSpread",
       "depositRate",
+      "ecbBalance",
       "gdp",
+      "m3",
       "marketInflation5y5y",
       "oisCuts12m",
       "oisCuts3m",
@@ -34,10 +38,6 @@
       "yield5y"
     ],
     "warnings": [
-      "ECB aaaYield2y: HTTP Error 504: Gateway Time-out",
-      "ECB aaaYield30y: HTTP Error 504: Gateway Time-out",
-      "ECB m3: HTTP Error 504: Gateway Time-out",
-      "ECB ecbBalance: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -7229,7 +7229,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.2984
+          "value": 3.230469
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8304,7 +8304,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.651092
+          "value": 3.616341
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9379,7 +9379,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 4.114836
+          "value": 4.116822
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10454,7 +10454,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 4.439902
+          "value": 4.447293
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11529,7 +11529,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 0.816436
+          "value": 0.886353
         }
       ],
       "threshold": 0,
@@ -12821,7 +12821,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 0.23067
+          "value": 0.23053
         }
       ],
       "source_name": "ECB Data Portal",
@@ -13888,7 +13888,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.900144
+          "value": 3.900284
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
@@ -15987,7 +15987,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.17
+          "value": 3.29
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -17166,7 +17166,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.106481
+          "value": 2.99713
         }
       ],
       "source": "live",
@@ -18240,7 +18240,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.132858
+          "value": 3.167448
         }
       ],
       "source": "live",
@@ -19314,7 +19314,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.463969
+          "value": 3.501981
         }
       ],
       "source": "live",
@@ -20388,7 +20388,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.835001
+          "value": 3.772198
         }
       ],
       "source": "live",
@@ -21014,7 +21014,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.02
+          "value": 3.08
         }
       ],
       "source": "live",
@@ -21992,7 +21992,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.2
+          "value": 3.23
         }
       ],
       "source": "live",
@@ -25576,7 +25576,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 0.357488
+          "value": 0.504851
         }
       ],
       "source": "berekend",
@@ -26642,7 +26642,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.900144
+          "value": 3.900284
         }
       ],
       "source": "berekend",
