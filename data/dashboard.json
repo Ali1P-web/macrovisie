@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-10-10",
+    "updated_at": "2026-10-11",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -12801,27 +12801,27 @@
         },
         {
           "date": "2026-04-01",
-          "value": 0.46369
+          "value": 0.4637
         },
         {
           "date": "2026-05-01",
-          "value": 0.29048
+          "value": 0.29057
         },
         {
           "date": "2026-06-01",
-          "value": 0.60231
+          "value": 0.6024
         },
         {
           "date": "2026-07-01",
-          "value": 0.65903
+          "value": 0.65911
         },
         {
           "date": "2026-08-01",
-          "value": 0.46472
+          "value": 0.46476
         },
         {
           "date": "2026-09-01",
-          "value": 0.23056
+          "value": 0.23059
         }
       ],
       "source_name": "ECB Data Portal",
@@ -13868,27 +13868,27 @@
         },
         {
           "date": "2026-04-01",
-          "value": 3.045676
+          "value": 3.045666
         },
         {
           "date": "2026-05-01",
-          "value": 3.090475
+          "value": 3.090385
         },
         {
           "date": "2026-06-01",
-          "value": 2.703714
+          "value": 2.703624
         },
         {
           "date": "2026-07-01",
-          "value": 2.980683
+          "value": 2.980603
         },
         {
           "date": "2026-08-01",
-          "value": 3.305134
+          "value": 3.305094
         },
         {
           "date": "2026-09-01",
-          "value": 3.900254
+          "value": 3.900224
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
@@ -26626,27 +26626,27 @@
         },
         {
           "date": "2026-04-01",
-          "value": 3.045676
+          "value": 3.045666
         },
         {
           "date": "2026-05-01",
-          "value": 3.090475
+          "value": 3.090385
         },
         {
           "date": "2026-06-01",
-          "value": 2.703714
+          "value": 2.703624
         },
         {
           "date": "2026-07-01",
-          "value": 2.980683
+          "value": 2.980603
         },
         {
           "date": "2026-08-01",
-          "value": 3.305134
+          "value": 3.305094
         },
         {
           "date": "2026-09-01",
-          "value": 3.900254
+          "value": 3.900224
         }
       ],
       "source": "berekend",
