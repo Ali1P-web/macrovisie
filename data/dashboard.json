@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-10-26",
+    "updated_at": "2026-10-27",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -32,12 +32,12 @@
       "pmiManufacturing",
       "pmiServices",
       "realYield",
+      "yield10y",
       "yield2y",
       "yield30y",
       "yield5y"
     ],
     "warnings": [
-      "ECB yield10y: The read operation timed out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -9379,7 +9379,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 4.103741
+          "value": 4.081456
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11529,7 +11529,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 0.874474
+          "value": 0.852189
         }
       ],
       "threshold": 0,
@@ -15103,11 +15103,11 @@
         },
         {
           "date": "2025-01-01",
-          "value": 3.742175
+          "value": 3.742171
         },
         {
           "date": "2025-02-01",
-          "value": 3.907953
+          "value": 3.90795
         },
         {
           "date": "2025-03-01",
@@ -15115,75 +15115,79 @@
         },
         {
           "date": "2025-04-01",
-          "value": 3.822267
+          "value": 3.822279
         },
         {
           "date": "2025-05-01",
-          "value": 4.072833
+          "value": 4.071842
         },
         {
           "date": "2025-06-01",
-          "value": 3.175257
+          "value": 3.174278
         },
         {
           "date": "2025-07-01",
-          "value": 3.32551
+          "value": 3.324535
         },
         {
           "date": "2025-08-01",
-          "value": 2.970912
+          "value": 2.96994
         },
         {
           "date": "2025-09-01",
-          "value": 2.849673
+          "value": 2.848696
         },
         {
           "date": "2025-10-01",
-          "value": 2.824755
+          "value": 2.823787
         },
         {
           "date": "2025-11-01",
-          "value": 2.941175
+          "value": 2.940878
         },
         {
           "date": "2025-12-01",
-          "value": 2.840933
+          "value": 2.840687
         },
         {
           "date": "2026-01-01",
-          "value": 3.198848
+          "value": 3.19836
         },
         {
           "date": "2026-02-01",
-          "value": 2.971393
+          "value": 2.971008
         },
         {
           "date": "2026-03-01",
-          "value": 3.302269
+          "value": 3.301793
         },
         {
           "date": "2026-04-01",
-          "value": 2.788629
+          "value": 2.788234
         },
         {
           "date": "2026-05-01",
-          "value": 3.077356
+          "value": 3.078895
         },
         {
           "date": "2026-06-01",
-          "value": 3.379954
+          "value": 3.383311
         },
         {
           "date": "2026-07-01",
-          "value": 3.41691
+          "value": 3.417775
         },
         {
           "date": "2026-08-01",
-          "value": 3.287812
+          "value": 3.291919
+        },
+        {
+          "date": "2026-09-01",
+          "value": 3.535373
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "ecbBalance": {
@@ -15991,7 +15995,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.54
+          "value": 3.64
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -21018,7 +21022,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.03
+          "value": 3.09
         }
       ],
       "source": "live",
@@ -21996,7 +22000,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.14
+          "value": 3.2
         }
       ],
       "source": "live",
@@ -23210,7 +23214,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.33
+          "value": 3.37
         }
       ],
       "source": "live",
@@ -24508,7 +24512,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.67
+          "value": 3.7
         }
       ],
       "source": "live",
