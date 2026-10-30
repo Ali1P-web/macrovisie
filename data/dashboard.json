@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-10-29",
+    "updated_at": "2026-10-30",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -1603,11 +1603,15 @@
         {
           "date": "2026-04-01",
           "value": 0.6
+        },
+        {
+          "date": "2026-07-01",
+          "value": 0.4
         }
       ],
       "source_name": "Eurostat · namq_10_gdp · EA20 · ",
       "data_quality": true,
-      "age_months": 6,
+      "age_months": 3,
       "freshness": "verouderd"
     },
     "unemployment": {
@@ -7229,7 +7233,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.272238
+          "value": 3.214526
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8304,7 +8308,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.614908
+          "value": 3.556989
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9379,7 +9383,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 4.048693
+          "value": 4.008565
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10454,7 +10458,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 4.369896
+          "value": 4.38409
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11529,7 +11533,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 0.776455
+          "value": 0.794039
         }
       ],
       "threshold": 0,
@@ -12821,7 +12825,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 0.23058
+          "value": 0.23057
         }
       ],
       "source_name": "ECB Data Portal",
@@ -13888,7 +13892,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.900234
+          "value": 3.900244
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
@@ -15995,7 +15999,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.62
+          "value": 3.49
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -17174,7 +17178,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.059802
+          "value": 3.008001
         }
       ],
       "source": "live",
@@ -18248,7 +18252,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.153291
+          "value": 3.110757
         }
       ],
       "source": "live",
@@ -19322,7 +19326,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.392749
+          "value": 3.373315
         }
       ],
       "source": "live",
@@ -20396,7 +20400,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.606105
+          "value": 3.611026
         }
       ],
       "source": "live",
@@ -25584,7 +25588,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 0.332947
+          "value": 0.365314
         }
       ],
       "source": "berekend",
@@ -26650,7 +26654,7 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.900234
+          "value": 3.900244
         }
       ],
       "source": "berekend",
