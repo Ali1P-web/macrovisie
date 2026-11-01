@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-10-31",
+    "updated_at": "2026-11-01",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -418,7 +418,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "pmiServices": {
       "label": "PMI Services",
@@ -795,7 +795,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "pmiComposite": {
       "label": "PMI Composite",
@@ -1172,7 +1172,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "gdp": {
       "label": "BBP-groei",
@@ -1611,7 +1611,7 @@
       ],
       "source_name": "Eurostat · namq_10_gdp · EA20 · ",
       "data_quality": true,
-      "age_months": 3,
+      "age_months": 4,
       "freshness": "verouderd"
     },
     "unemployment": {
@@ -1985,7 +1985,7 @@
           "value": 6.15
         }
       ],
-      "age_months": 3,
+      "age_months": 4,
       "freshness": "verouderd"
     },
     "wages": {
@@ -2359,7 +2359,7 @@
           "value": 4.71
         }
       ],
-      "age_months": 3,
+      "age_months": 4,
       "freshness": "verouderd"
     },
     "cpi": {
@@ -3612,7 +3612,7 @@
       "source_name": "Eurostat · prc_hicp_minr · EA21 · TOTAL",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "coreCpi": {
       "label": "Kerninflatie",
@@ -4864,7 +4864,7 @@
       "source_name": "Eurostat · prc_hicp_minr · EA21 · TOT_X_NRG_FOOD",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 1
+      "age_months": 2
     },
     "depositRate": {
       "label": "ECB-depositorente",
@@ -6162,7 +6162,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yield2y": {
@@ -7237,7 +7237,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yield5y": {
@@ -8312,7 +8312,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yield10y": {
@@ -9387,7 +9387,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yield30y": {
@@ -10462,7 +10462,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "yieldCurve": {
@@ -11538,7 +11538,7 @@
       ],
       "threshold": 0,
       "source_name": "10Y min 2Y",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "realYield": {
@@ -12829,7 +12829,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     },
     "breakeven": {
@@ -13896,7 +13896,7 @@
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     },
     "m3": {
@@ -15191,7 +15191,7 @@
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     },
     "ecbBalance": {
@@ -16005,7 +16005,7 @@
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
       "freshness": "actueel",
       "data_quality": true,
-      "age_months": 0
+      "age_months": 1
     },
     "oisCuts3m": {
       "values": [
@@ -16020,7 +16020,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "oisCuts6m": {
       "values": [
@@ -16035,7 +16035,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "oisCuts12m": {
       "values": [
@@ -16050,7 +16050,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "marketInflation5y5y": {
       "values": [
@@ -16065,7 +16065,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "consensusPmi": {
       "values": [
@@ -16080,7 +16080,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "consensusCoreCpi": {
       "values": [
@@ -16095,7 +16095,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "consensusEcbBp": {
       "values": [
@@ -16110,7 +16110,7 @@
       "source_name": "data/manual.csv",
       "freshness": "verouderd",
       "data_quality": true,
-      "age_months": 3
+      "age_months": 4
     },
     "aaaYield2y": {
       "label": "AAA-eurozone spotrate 2 jaar",
@@ -17183,7 +17183,7 @@
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "aaaYield5y": {
@@ -18257,7 +18257,7 @@
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "aaaYield10y": {
@@ -19331,7 +19331,7 @@
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "aaaYield30y": {
@@ -20405,7 +20405,7 @@
       ],
       "source": "live",
       "source_name": "ECB Data Portal",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "bund2y": {
@@ -21031,7 +21031,7 @@
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "bund5y": {
@@ -22009,7 +22009,7 @@
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "bund10y": {
@@ -23223,7 +23223,7 @@
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "bund30y": {
@@ -24521,7 +24521,7 @@
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "aaaYieldCurve": {
@@ -25593,7 +25593,7 @@
       ],
       "source": "berekend",
       "source_name": "AAA 10Y min AAA 2Y",
-      "age_months": 0,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "inflationProxy": {
@@ -26659,7 +26659,7 @@
       ],
       "source": "berekend",
       "source_name": "ECB nominale benchmark min ECB reële benchmark",
-      "age_months": 1,
+      "age_months": 2,
       "freshness": "actueel"
     }
   }
