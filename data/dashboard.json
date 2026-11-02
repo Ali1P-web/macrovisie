@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-11-01",
+    "updated_at": "2026-11-02",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -6159,10 +6159,14 @@
         {
           "date": "2026-10-01",
           "value": 2.5
+        },
+        {
+          "date": "2026-11-01",
+          "value": 2.5
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "yield2y": {
@@ -7233,7 +7237,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.214526
+          "value": 3.238169
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8308,7 +8312,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.556989
+          "value": 3.574993
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9383,7 +9387,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 4.008565
+          "value": 4.03323
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10458,7 +10462,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 4.38409
+          "value": 4.403499
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11533,7 +11537,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 0.794039
+          "value": 0.795061
         }
       ],
       "threshold": 0,
@@ -17178,7 +17182,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.008001
+          "value": 3.005108
         }
       ],
       "source": "live",
@@ -18252,7 +18256,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.110757
+          "value": 3.101425
         }
       ],
       "source": "live",
@@ -19326,7 +19330,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.373315
+          "value": 3.365047
         }
       ],
       "source": "live",
@@ -20400,7 +20404,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.611026
+          "value": 3.614933
         }
       ],
       "source": "live",
@@ -21027,11 +21031,15 @@
         {
           "date": "2026-10-01",
           "value": 3.07
+        },
+        {
+          "date": "2026-11-01",
+          "value": 3.04
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "bund5y": {
@@ -22005,11 +22013,15 @@
         {
           "date": "2026-10-01",
           "value": 3.16
+        },
+        {
+          "date": "2026-11-01",
+          "value": 3.12
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "bund10y": {
@@ -23219,11 +23231,15 @@
         {
           "date": "2026-10-01",
           "value": 3.34
+        },
+        {
+          "date": "2026-11-01",
+          "value": 3.31
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "bund30y": {
@@ -24517,11 +24533,15 @@
         {
           "date": "2026-10-01",
           "value": 3.69
+        },
+        {
+          "date": "2026-11-01",
+          "value": 3.67
         }
       ],
       "source": "live",
       "source_name": "Deutsche Bundesbank",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "aaaYieldCurve": {
@@ -25588,7 +25608,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 0.365314
+          "value": 0.359939
         }
       ],
       "source": "berekend",
