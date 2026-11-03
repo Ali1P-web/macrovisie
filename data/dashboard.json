@@ -2,14 +2,10 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-11-02",
+    "updated_at": "2026-11-03",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
-      "aaaYield10y",
-      "aaaYield2y",
-      "aaaYield30y",
-      "aaaYield5y",
       "bund10y",
       "bund2y",
       "bund30y",
@@ -21,9 +17,7 @@
       "cpi",
       "creditSpread",
       "depositRate",
-      "ecbBalance",
       "gdp",
-      "m3",
       "marketInflation5y5y",
       "oisCuts12m",
       "oisCuts3m",
@@ -31,13 +25,19 @@
       "pmiComposite",
       "pmiManufacturing",
       "pmiServices",
-      "realYield",
-      "yield10y",
-      "yield2y",
-      "yield30y",
       "yield5y"
     ],
     "warnings": [
+      "ECB yield2y: HTTP Error 504: Gateway Time-out",
+      "ECB yield10y: HTTP Error 504: Gateway Time-out",
+      "ECB yield30y: HTTP Error 504: Gateway Time-out",
+      "ECB aaaYield2y: HTTP Error 504: Gateway Time-out",
+      "ECB aaaYield5y: HTTP Error 504: Gateway Time-out",
+      "ECB aaaYield10y: The read operation timed out",
+      "ECB aaaYield30y: HTTP Error 504: Gateway Time-out",
+      "ECB realYield: The read operation timed out",
+      "ECB m3: HTTP Error 504: Gateway Time-out",
+      "ECB ecbBalance: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -8313,10 +8313,14 @@
         {
           "date": "2026-10-01",
           "value": 3.574993
+        },
+        {
+          "date": "2026-11-01",
+          "value": 3.508551
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 1,
+      "age_months": 0,
       "freshness": "actueel"
     },
     "yield10y": {
@@ -15858,10 +15862,6 @@
       "source": "live",
       "values": [
         {
-          "date": "2023-10-01",
-          "value": 4.83
-        },
-        {
           "date": "2023-11-01",
           "value": 4.32
         },
@@ -16003,7 +16003,7 @@
         },
         {
           "date": "2026-10-01",
-          "value": 3.48
+          "value": 3.59
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -21034,7 +21034,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.04
+          "value": 3.05
         }
       ],
       "source": "live",
@@ -24536,7 +24536,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.67
+          "value": 3.68
         }
       ],
       "source": "live",
