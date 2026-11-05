@@ -2,7 +2,7 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-11-04",
+    "updated_at": "2026-11-05",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
@@ -34,10 +34,10 @@
       "realYield",
       "yield10y",
       "yield2y",
-      "yield30y",
       "yield5y"
     ],
     "warnings": [
+      "ECB yield30y: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -7249,7 +7249,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.18505
+          "value": 3.167696
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8328,7 +8328,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.500486
+          "value": 3.478505
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9407,7 +9407,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.98174
+          "value": 3.945297
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11565,7 +11565,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 0.79669
+          "value": 0.777601
         }
       ],
       "threshold": 0,
@@ -12857,11 +12857,15 @@
         },
         {
           "date": "2026-09-01",
-          "value": 0.23057
+          "value": 0.23058
+        },
+        {
+          "date": "2026-10-01",
+          "value": 0.17383
         }
       ],
       "source_name": "ECB Data Portal",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "breakeven": {
@@ -13924,11 +13928,15 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.900244
+          "value": 3.900234
+        },
+        {
+          "date": "2026-10-01",
+          "value": 3.8594
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     },
     "m3": {
@@ -16031,7 +16039,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.56
+          "value": 3.54
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -17214,7 +17222,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 2.986812
+          "value": 2.998258
         }
       ],
       "source": "live",
@@ -18292,7 +18300,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.073712
+          "value": 3.077891
         }
       ],
       "source": "live",
@@ -19370,7 +19378,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.346605
+          "value": 3.340351
         }
       ],
       "source": "live",
@@ -20448,7 +20456,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.619711
+          "value": 3.619425
         }
       ],
       "source": "live",
@@ -21078,7 +21086,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.06
+          "value": 3.03
         }
       ],
       "source": "live",
@@ -22060,7 +22068,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.14
+          "value": 3.09
         }
       ],
       "source": "live",
@@ -23278,7 +23286,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.32
+          "value": 3.27
         }
       ],
       "source": "live",
@@ -24580,7 +24588,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.68
+          "value": 3.65
         }
       ],
       "source": "live",
@@ -25656,7 +25664,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 0.359793
+          "value": 0.342093
         }
       ],
       "source": "berekend",
@@ -26722,12 +26730,16 @@
         },
         {
           "date": "2026-09-01",
-          "value": 3.900244
+          "value": 3.900234
+        },
+        {
+          "date": "2026-10-01",
+          "value": 3.8594
         }
       ],
       "source": "berekend",
       "source_name": "ECB nominale benchmark min ECB reële benchmark",
-      "age_months": 2,
+      "age_months": 1,
       "freshness": "actueel"
     }
   }
