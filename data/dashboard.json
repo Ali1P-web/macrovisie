@@ -2,14 +2,12 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-11-10",
+    "updated_at": "2026-11-11",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
       "aaaYield10y",
-      "aaaYield2y",
       "aaaYield30y",
-      "aaaYield5y",
       "bund10y",
       "bund2y",
       "bund30y",
@@ -31,13 +29,15 @@
       "pmiComposite",
       "pmiManufacturing",
       "pmiServices",
-      "realYield",
       "yield10y",
       "yield2y",
-      "yield30y",
       "yield5y"
     ],
     "warnings": [
+      "ECB yield30y: HTTP Error 504: Gateway Time-out",
+      "ECB aaaYield2y: HTTP Error 504: Gateway Time-out",
+      "ECB aaaYield5y: HTTP Error 504: Gateway Time-out",
+      "ECB realYield: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -7249,7 +7249,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.103135
+          "value": 3.178181
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8328,7 +8328,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.411002
+          "value": 3.471462
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9407,7 +9407,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.863196
+          "value": 3.913375
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11565,7 +11565,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 0.760061
+          "value": 0.735194
         }
       ],
       "threshold": 0,
@@ -15882,7 +15882,7 @@
         },
         {
           "date": "2026-W4-01",
-          "value": 5945.41
+          "value": 5913.173
         }
       ],
       "source_name": "ECB Data Portal"
@@ -16039,7 +16039,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.49
+          "value": 3.4
         }
       ],
       "source_name": "FRED · ICE BofA Euro High Yield OAS · BAMLHE00EHYIOAS",
@@ -19378,7 +19378,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.271958
+          "value": 3.330887
         }
       ],
       "source": "live",
@@ -20456,7 +20456,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.571298
+          "value": 3.571745
         }
       ],
       "source": "live",
@@ -21086,7 +21086,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.02
+          "value": 3.08
         }
       ],
       "source": "live",
@@ -22068,7 +22068,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.08
+          "value": 3.14
         }
       ],
       "source": "live",
@@ -23286,7 +23286,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.24
+          "value": 3.3
         }
       ],
       "source": "live",
@@ -24588,7 +24588,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.61
+          "value": 3.66
         }
       ],
       "source": "live",
@@ -25664,7 +25664,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 0.332832
+          "value": 0.391761
         }
       ],
       "source": "berekend",
