@@ -2,12 +2,14 @@
   "meta": {
     "name": "MacroVisie",
     "version": "10.1.0",
-    "updated_at": "2026-11-11",
+    "updated_at": "2026-11-12",
     "mode": "web",
     "methodology": "v10.1: geverifieerde HICP, OIS 3/6/12 maanden, Euro High Yield OAS en Nederlandse notatie",
     "successful_updates": [
       "aaaYield10y",
+      "aaaYield2y",
       "aaaYield30y",
+      "aaaYield5y",
       "bund10y",
       "bund2y",
       "bund30y",
@@ -29,15 +31,13 @@
       "pmiComposite",
       "pmiManufacturing",
       "pmiServices",
+      "realYield",
       "yield10y",
       "yield2y",
+      "yield30y",
       "yield5y"
     ],
     "warnings": [
-      "ECB yield30y: HTTP Error 504: Gateway Time-out",
-      "ECB aaaYield2y: HTTP Error 504: Gateway Time-out",
-      "ECB aaaYield5y: HTTP Error 504: Gateway Time-out",
-      "ECB realYield: HTTP Error 504: Gateway Time-out",
       "Eurostat unemployment: filter niet eenduidig toegepast: dimensie age bevat 0 categorieën",
       "Eurostat wages: filter niet eenduidig toegepast: dimensie lcstruct bevat 0 categorieën"
     ]
@@ -7249,7 +7249,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.178181
+          "value": 3.209263
         }
       ],
       "source_name": "ECB Data Portal",
@@ -8328,7 +8328,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.471462
+          "value": 3.490684
         }
       ],
       "source_name": "ECB Data Portal",
@@ -9407,7 +9407,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.913375
+          "value": 3.926482
         }
       ],
       "source_name": "ECB Data Portal",
@@ -10486,7 +10486,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 4.312191
+          "value": 4.352178
         }
       ],
       "source_name": "ECB Data Portal",
@@ -11565,7 +11565,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 0.735194
+          "value": 0.717219
         }
       ],
       "threshold": 0,
@@ -12837,31 +12837,31 @@
         },
         {
           "date": "2026-04-01",
-          "value": 0.4637
+          "value": 0.46369
         },
         {
           "date": "2026-05-01",
-          "value": 0.29057
+          "value": 0.29048
         },
         {
           "date": "2026-06-01",
-          "value": 0.6024
+          "value": 0.60231
         },
         {
           "date": "2026-07-01",
-          "value": 0.65911
+          "value": 0.65903
         },
         {
           "date": "2026-08-01",
-          "value": 0.46476
+          "value": 0.46472
         },
         {
           "date": "2026-09-01",
-          "value": 0.23058
+          "value": 0.23055
         },
         {
           "date": "2026-10-01",
-          "value": 0.17383
+          "value": 0.17379
         }
       ],
       "source_name": "ECB Data Portal",
@@ -13908,31 +13908,31 @@
         },
         {
           "date": "2026-04-01",
-          "value": 3.045666
+          "value": 3.045676
         },
         {
           "date": "2026-05-01",
-          "value": 3.090385
+          "value": 3.090475
         },
         {
           "date": "2026-06-01",
-          "value": 2.703624
+          "value": 2.703714
         },
         {
           "date": "2026-07-01",
-          "value": 2.980603
+          "value": 2.980683
         },
         {
           "date": "2026-08-01",
-          "value": 3.305094
+          "value": 3.305134
         },
         {
           "date": "2026-09-01",
-          "value": 3.900234
+          "value": 3.900264
         },
         {
           "date": "2026-10-01",
-          "value": 3.8594
+          "value": 3.85944
         }
       ],
       "source_name": "Niet-verhandelbare afleiding",
@@ -17222,7 +17222,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 2.939126
+          "value": 3.045249
         }
       ],
       "source": "live",
@@ -18300,7 +18300,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.012563
+          "value": 3.096876
         }
       ],
       "source": "live",
@@ -19378,7 +19378,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.330887
+          "value": 3.340083
         }
       ],
       "source": "live",
@@ -20456,7 +20456,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.571745
+          "value": 3.602596
         }
       ],
       "source": "live",
@@ -22068,7 +22068,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.14
+          "value": 3.13
         }
       ],
       "source": "live",
@@ -23286,7 +23286,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.3
+          "value": 3.29
         }
       ],
       "source": "live",
@@ -24588,7 +24588,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 3.66
+          "value": 3.65
         }
       ],
       "source": "live",
@@ -25664,7 +25664,7 @@
         },
         {
           "date": "2026-11-01",
-          "value": 0.391761
+          "value": 0.294834
         }
       ],
       "source": "berekend",
@@ -26710,31 +26710,31 @@
         },
         {
           "date": "2026-04-01",
-          "value": 3.045666
+          "value": 3.045676
         },
         {
           "date": "2026-05-01",
-          "value": 3.090385
+          "value": 3.090475
         },
         {
           "date": "2026-06-01",
-          "value": 2.703624
+          "value": 2.703714
         },
         {
           "date": "2026-07-01",
-          "value": 2.980603
+          "value": 2.980683
         },
         {
           "date": "2026-08-01",
-          "value": 3.305094
+          "value": 3.305134
         },
         {
           "date": "2026-09-01",
-          "value": 3.900234
+          "value": 3.900264
         },
         {
           "date": "2026-10-01",
-          "value": 3.8594
+          "value": 3.85944
         }
       ],
       "source": "berekend",
